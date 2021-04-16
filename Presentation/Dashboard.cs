@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Infrastructure;
 using Models;
+using GlobalStringsReadOnly;
 
 namespace Presentation
 {
@@ -49,13 +50,15 @@ namespace Presentation
         private async void FactoryTable_create_Click(object sender, EventArgs e)
         {
             DisableFactorybuttons();
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(TableNames.FactoryTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(GlobalReadOnlyStrings.FactoryTable));
+                //TableNames.FactoryTable.ToString()));
             EnableFactoryButtons();
         }
         private async void FactoryTable_delete_Click(object sender, EventArgs e)
         {
             DisableFactorybuttons();
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.FactoryTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.FactoryTable));
+                //TableNames.FactoryTable.ToString()));
             EnableFactoryButtons();
         }
         private async void FactoryTable_Insert_Click(object sender, EventArgs e)
@@ -67,7 +70,8 @@ namespace Presentation
         private async void FactoryTable_flush_Click(object sender, EventArgs e)
         {
             DisableFactorybuttons();
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.FactoryTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.FactoryTable));
+                //TableNames.FactoryTable.ToString()));
             EnableFactoryButtons();
         }
         private void EnableFactoryButtons()
@@ -87,54 +91,66 @@ namespace Presentation
         //IOOddTable Buttons
         private async void IOOddTable_Create_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(TableNames.IOOddTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(GlobalReadOnlyStrings.IOOddTable));
+                //TableNames.IOOddTable.ToString()));
         }
         private async void IOOddTable_Delete_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.IOOddTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.IOOddTable));
+                //TableNames.IOOddTable.ToString()));
         }
         private async void IOOddTable_FlushRows_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.IOOddTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.IOOddTable));
+                //TableNames.IOOddTable.ToString()));
         }
         //IOEvenTable Buttons
         private async void IOEvenTable_Create_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(TableNames.IOEvenTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(GlobalReadOnlyStrings.IOEvenTable));
+                //TableNames.IOEvenTable.ToString()));
         }
         private async void IOEvenTable_Delete_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.IOEvenTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.IOEvenTable));
+                //TableNames.IOEvenTable.ToString()));
         }
         private async void IOEvenTable_FlushRows_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.IOEvenTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.IOEvenTable));
+                //TableNames.IOEvenTable.ToString()));
         }
         //IOKeepTable Buttons
         private async void IOKeepTable_Create_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(TableNames.IOKeepTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(GlobalReadOnlyStrings.IOKeepTable));
+                //TableNames.IOKeepTable.ToString()));
         }
         private async void IOKeepTable_Delete_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.IOKeepTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.IOKeepTable));
+                //TableNames.IOKeepTable.ToString()));
         }
         private async void IOKeepTable_FlushRows_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.IOKeepTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.IOKeepTable));
+                //TableNames.IOKeepTable.ToString()));
         }
         //DeviationTable Buttons
         private async void IODeviationTable_Create_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(TableNames.IODeviationTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createIOTemplateTable(GlobalReadOnlyStrings.IODeviationTable));
+                //TableNames.IODeviationTable.ToString()));
         }
         private async void IODeviationTable_Delete_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.IODeviationTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.IODeviationTable));
+                //TableNames.IODeviationTable.ToString()));
         }
         private async void IODeviationTable_FlushRows_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.IODeviationTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.IODeviationTable));
+                //TableNames.IODeviationTable.ToString()));
         }
         private async void IODeviationTable_Insert_Click(object sender, EventArgs e)
         {
@@ -145,59 +161,72 @@ namespace Presentation
             DeviationTextBox.Text = "";
             _samples.Add(_sample);
             System.Diagnostics.Debug.WriteLine($"Trycker på  IODeviationTable_Insert_Click");
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_insertIOObject(TableNames.IODeviationTable.ToString(), _samples));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_insertIOObject(GlobalReadOnlyStrings.IODeviationTable, _samples));
+            //TableNames.IODeviationTable.ToString()
         }
         //Cam1OddTable Buttons
         private async void Cam1Odd_Create_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createPictureTemplateTable(TableNames.Cam1OddTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createPictureTemplateTable(GlobalReadOnlyStrings.Cam1OddTable));
+                //TableNames.Cam1OddTable.ToString()));
         }
         private async void Cam1Odd_Delete_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.Cam1OddTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.Cam1OddTable));
+                //TableNames.Cam1OddTable.ToString()));
         }
         private async void Cam1Odd_FlushRows_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.Cam1OddTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.Cam1OddTable));
+                //TableNames.Cam1OddTable.ToString()));
         }
         //Cam1EvenTable Buttons
         private async void Cam1EvenTable_Create_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createPictureTemplateTable(TableNames.Cam1EvenTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createPictureTemplateTable(GlobalReadOnlyStrings.Cam1EvenTable));
+                //TableNames.Cam1EvenTable.ToString()));
         }
         private async void Cam1EvenTable_Delete_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.Cam1EvenTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.Cam1EvenTable));
+                //TableNames.Cam1EvenTable.ToString()));
         }
         private async void Cam1EvenTable_FlushRows_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.Cam1EvenTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.Cam1EvenTable));
+                //TableNames.Cam1EvenTable.ToString()));
         }
         //Cam1KeepTable Buttons
         private async void Cam1KeepTable_Create_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createPictureTemplateTable(TableNames.Cam1KeepTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createPictureTemplateTable(GlobalReadOnlyStrings.Cam1KeepTable));
+                //TableNames.Cam1KeepTable.ToString()));
         }
         private async void Cam1KeepTable_Delete_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.Cam1KeepTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.Cam1KeepTable));
+                //TableNames.Cam1KeepTable.ToString()));
         }
         private async void Cam1KeepTable_FlushRows_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.Cam1KeepTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.Cam1KeepTable));
+                //TableNames.Cam1KeepTable.ToString()));
         }
         //Cam1ThrowTable Buttons
         private async void Cam1ThrowTable_Create_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createPictureTemplateTable(TableNames.Cam1ThrowTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_createPictureTemplateTable(GlobalReadOnlyStrings.Cam1ThrowTable));
+                //TableNames.Cam1ThrowTable.ToString()));
         }
         private async void Cam1ThrowTable_Delete_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(TableNames.Cam1ThrowTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_delete(GlobalReadOnlyStrings.Cam1ThrowTable));
+                //TableNames.Cam1ThrowTable.ToString()));
         }
         private async void Cam1ThrowTable_FlushRows_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(TableNames.Cam1ThrowTable.ToString()));
+            await Task.Run(() => _dataAccessGeneralTablesNEW.GeneralTable_flush(GlobalReadOnlyStrings.Cam1ThrowTable));
+                //TableNames.Cam1ThrowTable.ToString()));
         }
         #endregion
 

@@ -142,17 +142,20 @@ namespace Presentation
                 dashboard.UIClockString.Text = DateTime.Now.ToString("HH:mm:ss"); ;
                 var UnixTimeSeconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
                 dashboard.UIClockUnix.Text = UnixTimeSeconds.ToString();
-                dashboard.FactoryTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.FactoryTable.ToString()).ToString();
-                dashboard.IOOddTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.IOOddTable.ToString()).ToString();
-                dashboard.IOEvenTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.IOEvenTable.ToString()).ToString();
-                dashboard.IOKeepTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.IOKeepTable.ToString()).ToString();
-                dashboard.DeviationTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.IODeviationTable.ToString()).ToString();
-                dashboard.Cam1OddTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.Cam1OddTable.ToString()).ToString();
-                dashboard.Cam1EvenTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.Cam1EvenTable.ToString()).ToString();
-                dashboard.Cam1KeepTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.Cam1KeepTable.ToString()).ToString();
-                dashboard.Cam1ThrowTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.Cam1ThrowTable.ToString()).ToString();
+                dashboard.FactoryTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.FactoryTable).ToString();
+                dashboard.IOOddTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.IOOddTable).ToString();
+                dashboard.IOEvenTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.IOEvenTable).ToString();
+                dashboard.IOKeepTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.IOKeepTable).ToString();
+                dashboard.DeviationTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.IODeviationTable).ToString();
+                dashboard.Cam1OddTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.Cam1OddTable).ToString();
+                dashboard.Cam1EvenTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.Cam1EvenTable).ToString();
+                dashboard.Cam1KeepTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.Cam1KeepTable).ToString();
+                dashboard.Cam1ThrowTableRows.Text = dataAccess.GeneralTable_getNrOfRows(GlobalReadOnlyStrings.Cam1ThrowTable).ToString();
                 dashboard.PicturesInWorkFolder.Text = Directory.GetFiles(cam1.pathFolderWork, "*", SearchOption.AllDirectories).Length.ToString();
                 dashboard.PicturesInKeepFolder.Text = Directory.GetFiles(cam1.pathFolderKeep, "*", SearchOption.AllDirectories).Length.ToString();
+
+
+
 
 
 

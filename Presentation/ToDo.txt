@@ -1,18 +1,6 @@
 
 
 
-1: Hub-2-Hub_KKS123_SystemVolt_Erratic ....
-
-
-
-
-
-
-(ps. Detta gäller inte för pics som tur är.....)
-
-
-
-
 2: Ta bort Enum, och ersätt med globalStrings. Gällande Enum är den i Presentation.
 
 
@@ -22,17 +10,11 @@
 
 4: köp kamera, implementera DB/SP mm
 
-
 5: Samla in data
-
 
 5.5 Gör några xUnit och Moq tester.
 
-
 6: Gör film
-
-
-
 
 
 ********
@@ -41,4 +23,3 @@ Till Front
 * KANSKE SNILLEBLIXT, SUDDA INTE. ALLA TIME SPIN BOXES KAN TRÄFFA SAMMA CALLBACK FUNKTION
 * Step line chart. Skriv in detta namn i någon kommentar i Front.
 * Kanske lägga till färgglidande bakgrund, så som jag gjorde på IQR.
-

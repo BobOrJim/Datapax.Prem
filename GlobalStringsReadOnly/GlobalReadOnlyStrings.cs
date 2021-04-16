@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace GlobalStringsReadOnly
 {
-	//When this system is commisioned at a real factory. IOTablesTemplateColumnNames will contain perhaps 1000 different IO
-	//and thus we should probably write some kind of CSV file, and a separate program/parser. That will modify all *.sql storedprocedures automatic
+	//When this system is commisioned in a real factory. IOTablesTemplateColumnNames will contain perhaps 1000 different IO
+	//and thus we will need to write some kind of CSV file with the customer in a separate program.
+    //This program will then automaticly modify all the *.sql storedprocedures
 	static public class GlobalReadOnlyStrings
     {
         public static readonly string pathCamera1WorkFolder = @"C:\Users\Jimmy\Desktop\Tests\V019\Presentation\Cam1WorkPictures\";
@@ -20,6 +21,40 @@ namespace GlobalStringsReadOnly
 			"@Vestas_Verk12_Koppling_HogTemp, @Vestas_Verk12_Koppling_LagOljeNiva, @Vestas_Verk12_Koppling_TryckAvvikelse, @Vestas_Verk12_Vaderstation_WatchDog";
 
 
+        //Dessa matchar exakt namn på tabeller i db. DONT TOUCH. And use them so you dont fat finger anything. Dessa fat finger fel är sega att hitta. :)
+        public static readonly string FactoryTable = "FactoryTable";
+        public static readonly string IOOddTable = "IOOddTable";
+        public static readonly string IOEvenTable = "IOEvenTable";
+        public static readonly string IOKeepTable = "IOKeepTable";
+        public static readonly string IODeviationTable = "IODeviationTable";
+        public static readonly string Cam1OddTable = "Cam1OddTable";
+        public static readonly string Cam1EvenTable = "Cam1EvenTable";
+        public static readonly string Cam1KeepTable = "Cam1KeepTable";
+        public static readonly string Cam1ThrowTable = "Cam1ThrowTable";
+        public static readonly string Cam2OddTable = "Cam2OddTable";
+        public static readonly string Cam2EvenTable = "Cam2EvenTable";
+        public static readonly string Cam2KeepTable = "Cam2KeepTable";
+        public static readonly string Cam2ThrowTable = "Cam2ThrowTable";
+
+        //Dessa matchar exakt SP namn.
+        public static readonly string IOTable_createIOTemplateTable = "IOTable_createIOTemplateTable";
+        public static readonly string IOTable_deleteTable = "IOTable_deleteTable";
+        public static readonly string IOTable_deleteAllPostsInTable = "IOTable_deleteAllPostsInTable";
+        public static readonly string IOTable_getPostCountInTable = "IOTable_getPostCountInTable";
+        public static readonly string IOTable_getAllPostsInTable = "IOTable_getAllPostsInTable";
+        public static readonly string IOTable_cutPostsBetweenInTable = "IOTable_cutPostsBetweenInTable";
+        public static readonly string FactoryTable_insert = "FactoryTable_insert";
+        public static readonly string IOOddTable_insert = "IOOddTable_insert";
+        public static readonly string IOEvenTable_insert = "IOEvenTable_insert";
+        public static readonly string IOKeepTable_insert = "IOKeepTable_insert";
+        public static readonly string IODeviationTable_Insert = "IODeviationTable_Insert";
+        public static readonly string IOTable_insertInTable = "IOTable_insertInTable";
+        public static readonly string PictureTable_createPictureTemplateTable = "PictureTable_createPictureTemplateTable";
+        public static readonly string Cam1OddTable_Insert = "Cam1OddTable_Insert";
+        public static readonly string Cam1EvenTable_Insert = "Cam1EvenTable_Insert";
+        public static readonly string Cam1KeepTable_Insert = "Cam1KeepTable_Insert";
+        public static readonly string Cam1ThrowTable_Insert = "Cam1ThrowTable_Insert";
+        public static readonly string PictureTable_cutPostsBetweenInTable = "PictureTable_cutPostsBetweenInTable";
 
     }
 }
