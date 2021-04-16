@@ -1,4 +1,49 @@
 DATABASER MED TILLHÖRANDE TABELLER
+myDB:
+-Cam1EvenTable
+-Cam1OddTable
+-Cam1KeepTable
+-Cam1ThrowTable
+
+-FactoryTable
+
+-IOEvenTable
+-IOOddTable
+-IOKeepTable
+-IODeviationTable
+
+MY TABELL GRUPERING (DVS SAMMA KOLUMNER/LAYOUT. FÖR STORED PROCEDURE TILLDELNING)
+1A: FactoryTable
+1B: IOEvenTable
+1C: IOOddTable
+1D: IOKeepTable
+1E: IODeviationTable (Notering: Endast DeviationID_TEXT och Timestamp_unix_BIGINT används. Övrig data från template blir dummy)
+
+2A: Cam1EvenTable
+2B: Cam1OddTable
+2C: Cam1KeepTable
+2D: Cam1ThrowTable (Notering: Endast filnamn + sökväg används. Övrig data blir dummy)
+
+
+STORED PROCEDURES
+Cam1EvenTable_Insert
+Cam1KeepTable_Insert
+Cam1OddTable_Insert
+Cam1ThrowTable_Insert
+FactoryTable_insert
+IODeviationTable_insert
+IOEvenTable_insert
+IOKeepTable_insert
+IOOddTable_insert
+
+IOTable_createIOTemplateTable				(Command) (Input=TableName) (Grupp 1)
+IOTable_cutPostsBetweenInTable
+IOTable_deleteAllPostsInTable				(Command) (Input=TableName) (Grupp 1 + 2)
+IOTable_deleteTable							(Command) (Input=TableName) (Grupp 1 + 2)
+IOTable_getAllPostsInTable					(Query)   (Input=TableName, Output=List<IOSampleModel>) (Grupp 1)
+IOTable_getPostCountInTable					(Query)   (Input=TableName, Output=List<IOSampleModel>) (Grupp 1+2)
+PictureTable_createPictureTemplateTable		(Command) (Input=TableName) (Grupp 2)
+PictureTable_cutPostsBetweenInTable
 
 
 
@@ -7,7 +52,10 @@ DATABASER MED TILLHÖRANDE TABELLER
 
 
 
-
+TESTDATA KOLUMNER
+//Eftersom detta system inte kan anslutas till någon "Fabrik" från hemma kontoret så används en simulator. Vid skarpt läge används en kepEx
+//tredjepartsmjukvara för att lyfta data från "fabrik" till platt databas.
+//Följande påhittade signaler används.
 //Jag splitar på underscore och inte mellanslag
 Hub-2-Hub_KKS123_SystemVolt_Erratic
 Hub-2-Hub_KKS123_SystemVolt_Low
@@ -33,8 +81,4 @@ Vestas_Verk12_Koppling_HögTemp
 Vestas_Verk12_Koppling_LågOljeNivå
 Vestas_Verk12_Koppling_TryckAvvikelse
 Vestas_Verk12_Väderstation_WatchDog
-
-
-
-
 

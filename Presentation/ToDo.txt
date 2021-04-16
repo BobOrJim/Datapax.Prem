@@ -1,7 +1,10 @@
 
 
-1: skriv notes med tabellNBamn, SPname, och testdata namn
+1.1 Kommentera SP med syfte o hur de skall byggas om
 
+1.2: Redusera insert SP
+
+1.5 ändra Deviation till Trigger.
 
 2: Ta bort Enum, och ersät med globalStrings.
 
@@ -12,7 +15,7 @@
 3.5: Testa varje knapp
 
 
-4: köp kamera
+4: köp kamera, implementera DB/SP mm
 
 
 5: Samla in data
