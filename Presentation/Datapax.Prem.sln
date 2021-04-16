@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationCore.Tests", "..
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyDocumentation", "MyDocumentation", "{68297B6D-B86A-43F1-9984-EBC69CFCF27D}"
 	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
+		Notes.txt = Notes.txt
+		ReadMe.txt = ReadMe.txt
+		ToDo.txt = ToDo.txt
 	EndProjectSection
 EndProject
 Global
