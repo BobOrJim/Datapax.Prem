@@ -89,6 +89,7 @@ namespace Presentation
 
                     UpdateSomeUIData();
 
+                    //210416
                     iOOddTableController.Run(); //Data collected during an Odd minute
                     iOEvenTableController.Run(); //Data collected during an Even minute
                     iOKeepTableController.Run(timeBeforeDeviation, timeAfterDeviation);
@@ -116,7 +117,7 @@ namespace Presentation
                     //Cam1KeepTableController
                     //Cam1GarbageCollector
                 }
-                //Thread.Sleep(500);
+
 
                 await Task.Delay(100);
             }

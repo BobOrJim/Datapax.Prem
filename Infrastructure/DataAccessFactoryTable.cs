@@ -7,26 +7,26 @@ using System.Data;
 using System.Configuration;
 using Dapper;
 using Models;
+using GlobalStringsReadOnly;
 
 namespace Infrastructure
 {
     public class DataAccessFactoryTable
     {
-        public static string sqlColumns { get; set; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, @Bit1, @Bit2, @Bit3";
+        //public static string sqlColumns { get; set; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, @Bit1, @Bit2, @Bit3";
 
         public static void FactoryTable_insert()
         {
-            //System.Diagnostics.Debug.WriteLine($"Nu försöker vi igen                :)                          ");
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    List<IOSampleModel> _samples = new List<IOSampleModel>();
-                    IOSampleModel _sample = new IOSampleModel();
+                    List<IOSampleModel2> _samples = new List<IOSampleModel2>();
+                    IOSampleModel2 _sample = new IOSampleModel2();
                     _samples.Add(_sample);
                     try
                     {
-                        string _sqlSp = StoredProceduresIO.FactoryTable_insert.ToString() + sqlColumns;
+                        string _sqlSp = StoredProceduresIO.FactoryTable_insert.ToString() + GlobalReadOnlyStrings.IOTablesTemplateColumnNames;
 
                         //string _sqlSp = "FactoryTable_insert" + sqlColumns;
                         //System.Diagnostics.Debug.WriteLine($"_sqlSp = : {_sqlSp}");
@@ -38,13 +38,13 @@ namespace Infrastructure
                     }
                     catch (Exception e)
                     {
-                        System.Diagnostics.Debug.WriteLine($"Exception in GeneralTable_insert: " + e);
+                        System.Diagnostics.Debug.WriteLine($"Exception in class DataAccessFactoryTable Method FactoryTable_insert: " + e);
                     }
                 }
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in FactoryTable_insert: " + e);
+                System.Diagnostics.Debug.WriteLine($"Exception in class DataAccessFactoryTable Method FactoryTable_insert: " + e);
             }
          }
 
