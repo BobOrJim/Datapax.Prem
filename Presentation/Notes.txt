@@ -1,0 +1,40 @@
+DATABASER MED TILLHÖRANDE TABELLER
+
+
+
+
+
+
+
+
+
+//Jag splitar på underscore och inte mellanslag
+Hub-2-Hub_KKS123_SystemVolt_Erratic
+Hub-2-Hub_KKS123_SystemVolt_Low
+Hub-2-Hub_KKS123_Retarder_LowCurrent
+Hub-2-Hub_KKS123_AuxPressure_Low
+
+Panna_flisinmatning_skruv 1_Motorskydd
+Panna_flisinmatning_skruv 1_Säkerhetsbrytare
+Panna_flisinmatning_skruv 1_Varvtalsvakt
+Panna_flisinmatning_skruv 1_Nödstop
+
+Panna_Fribord_flisinmating_pt1000 Analog 800-900, med max tick på 10, använd bool för att slumpa rörelse
+Panna_Fribord_askutmating_pt1000 Analog
+Panna_Fribord_FöreBrännare_pt1000 Analog
+Panna_Fribord_EfterBrännare_pt1000 Analog
+
+Karlatornet_Ventilation_Frånluft_HögTemp
+Karlatornet_Ventilation_Frånluft_LågTemp
+Karlatornet_Brandlarm_Hiss1_Aktivt
+Karlatornet_Brandlarm_Hiss2_Aktivt
+
+Vestas_Verk12_Koppling_HögTemp
+Vestas_Verk12_Koppling_LågOljeNivå
+Vestas_Verk12_Koppling_TryckAvvikelse
+Vestas_Verk12_Väderstation_WatchDog
+
+
+
+
+
