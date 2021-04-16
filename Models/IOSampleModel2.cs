@@ -26,7 +26,7 @@ namespace Models
 
         public int Panna_Fribord_flisinmating_pt1000 { get; } = 0;
         public int Panna_Fribord_askutmating_pt1000 { get; } = 0;
-        public int Panna_Fribord_FöreBrännare_pt1000 { get; } = 0;
+        public int Panna_Fribord_ForeBrannare_pt1000 { get; } = 0;
         public int Panna_Fribord_EfterBrannare_pt1000 { get; } = 0;
 
         public bool Karlatornet_Ventilation_Franluft_HogTemp { get; } = false;
@@ -76,7 +76,7 @@ namespace Models
 
             Panna_Fribord_flisinmating_pt1000 = fixRand.Next(600, 630);
             Panna_Fribord_askutmating_pt1000 = fixRand.Next(600, 630);
-            Panna_Fribord_FöreBrännare_pt1000 = fixRand.Next(600, 630);
+            Panna_Fribord_ForeBrannare_pt1000 = fixRand.Next(600, 630);
             Panna_Fribord_EfterBrannare_pt1000 = fixRand.Next(600, 630);
 
             Karlatornet_Ventilation_Franluft_HogTemp = fixRand.NextDouble() > 0.5;

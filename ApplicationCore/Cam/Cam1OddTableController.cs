@@ -10,10 +10,10 @@ namespace ApplicationCore.Cam
 {
     public class Cam1OddTableController
     {
-        public IDataAccessGeneralTablesNEW dataAccessGeneralTables;
+        public IDataAccess dataAccessGeneralTables;
         private List<PictureSampleModel> pictureSamples;
 
-        public Cam1OddTableController(IDataAccessGeneralTablesNEW _iDataAccessGeneralTables)
+        public Cam1OddTableController(IDataAccess _iDataAccessGeneralTables)
         {
             dataAccessGeneralTables = _iDataAccessGeneralTables;
         }

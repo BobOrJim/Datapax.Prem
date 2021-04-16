@@ -14,10 +14,10 @@ namespace ApplicationCore.IO
         private static int _unixTimeSeconds;
         private static int _unixTimeMinutes;
         private static int _unixTimeSecondsMod60;
-        private static List<IOSampleModel> _samples = new List<IOSampleModel>();
-        public IDataAccessGeneralTablesNEW iDataAccessGeneralTables;
+        private static List<IOSampleModel2> _samples = new List<IOSampleModel2>();
+        public IDataAccess iDataAccessGeneralTables;
 
-        public IOOddTableController(IDataAccessGeneralTablesNEW _iDataAccessGeneralTables)
+        public IOOddTableController(IDataAccess _iDataAccessGeneralTables)
         {
             iDataAccessGeneralTables = _iDataAccessGeneralTables;
         }

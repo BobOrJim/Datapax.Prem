@@ -23,7 +23,7 @@ namespace ApplicationCore.Cam
         public string pictureFileNamePrefix { get; set; }
         public PictureController pictureController;
 
-        public CameraController(IDataAccessGeneralTablesNEW _iDataAccessGeneralTables)
+        public CameraController(IDataAccess _iDataAccessGeneralTables)
         {
             pictureController = new PictureController(_iDataAccessGeneralTables);
             var videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);

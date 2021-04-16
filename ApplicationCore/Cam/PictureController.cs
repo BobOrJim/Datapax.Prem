@@ -18,9 +18,9 @@ namespace ApplicationCore.Cam
         private int unixTimeMinutes;
         private int unixTimeSecondsMod60;
         private List<PictureSampleModel> pictureSamples;
-        public IDataAccessGeneralTablesNEW dataAccessGeneralTables;
+        public IDataAccess dataAccessGeneralTables;
 
-        public PictureController(IDataAccessGeneralTablesNEW _iDataAccessGeneralTables)
+        public PictureController(IDataAccess _iDataAccessGeneralTables)
         {
             dataAccessGeneralTables = _iDataAccessGeneralTables;
         }

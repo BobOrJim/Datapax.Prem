@@ -11,6 +11,7 @@ using Infrastructure;
 using Interfaces;
 using ApplicationCore.Cam;
 using GlobalStringsReadOnly;
+using Interfaces;
 
 namespace Presentation
 {
@@ -20,7 +21,7 @@ namespace Presentation
         public Boolean StartWorker { get; set; }
         private static Dashboard dashboard;
         
-        public readonly DataAccessGeneralTablesNEW dataAccessGeneralTablesNEW;
+        public readonly DataAccess dataAccess;
         private readonly IOOddTableController iOOddTableController;
         private readonly IOEvenTableController iOEvenTableController;
         private readonly IOKeepTableController iOKeepTableController;
@@ -32,16 +33,16 @@ namespace Presentation
 
         public MyStartup()
         {
-            dataAccessGeneralTablesNEW = new DataAccessGeneralTablesNEW();
-            iOOddTableController = new IOOddTableController(dataAccessGeneralTablesNEW);   //Denna tas emot som interface. DIP
-            iOEvenTableController = new IOEvenTableController(dataAccessGeneralTablesNEW); //Denna tas emot som interface DIP
-            iOKeepTableController = new IOKeepTableController(dataAccessGeneralTablesNEW); //Denna tas emot som interface DIP
+            dataAccess = new DataAccess();
+            iOOddTableController = new IOOddTableController(dataAccess);   //Denna tas emot som interface. DIP
+            iOEvenTableController = new IOEvenTableController(dataAccess); //Denna tas emot som interface DIP
+            iOKeepTableController = new IOKeepTableController(dataAccess); //Denna tas emot som interface DIP
 
-            cam1OddTableController = new Cam1OddTableController(dataAccessGeneralTablesNEW);
-            cam1EvenTableController = new Cam1EvenTableController(dataAccessGeneralTablesNEW);
-            cam1KeepTableController = new Cam1KeepTableController(dataAccessGeneralTablesNEW);
-            cam1GarbageCollector = new Cam1GarbageCollector(dataAccessGeneralTablesNEW);
-            cam1 = new CameraController(dataAccessGeneralTablesNEW) //Denna tas emot som interface DIP
+            cam1OddTableController = new Cam1OddTableController(dataAccess);
+            cam1EvenTableController = new Cam1EvenTableController(dataAccess);
+            cam1KeepTableController = new Cam1KeepTableController(dataAccess);
+            cam1GarbageCollector = new Cam1GarbageCollector(dataAccess);
+            cam1 = new CameraController(dataAccess) //Denna tas emot som interface DIP
             {
                 pathFolderWork = GlobalReadOnlyStrings.pathCamera1WorkFolder,
                 pathFolderKeep = GlobalReadOnlyStrings.pathCamera1KeepFolder,
@@ -141,15 +142,15 @@ namespace Presentation
                 dashboard.UIClockString.Text = DateTime.Now.ToString("HH:mm:ss"); ;
                 var UnixTimeSeconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
                 dashboard.UIClockUnix.Text = UnixTimeSeconds.ToString();
-                dashboard.FactoryTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.FactoryTable.ToString()).ToString();
-                dashboard.IOOddTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.IOOddTable.ToString()).ToString();
-                dashboard.IOEvenTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.IOEvenTable.ToString()).ToString();
-                dashboard.IOKeepTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.IOKeepTable.ToString()).ToString();
-                dashboard.DeviationTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.IODeviationTable.ToString()).ToString();
-                dashboard.Cam1OddTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.Cam1OddTable.ToString()).ToString();
-                dashboard.Cam1EvenTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.Cam1EvenTable.ToString()).ToString();
-                dashboard.Cam1KeepTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.Cam1KeepTable.ToString()).ToString();
-                dashboard.Cam1ThrowTableRows.Text = dataAccessGeneralTablesNEW.GeneralTable_getNrOfRows(TableNames.Cam1ThrowTable.ToString()).ToString();
+                dashboard.FactoryTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.FactoryTable.ToString()).ToString();
+                dashboard.IOOddTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.IOOddTable.ToString()).ToString();
+                dashboard.IOEvenTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.IOEvenTable.ToString()).ToString();
+                dashboard.IOKeepTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.IOKeepTable.ToString()).ToString();
+                dashboard.DeviationTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.IODeviationTable.ToString()).ToString();
+                dashboard.Cam1OddTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.Cam1OddTable.ToString()).ToString();
+                dashboard.Cam1EvenTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.Cam1EvenTable.ToString()).ToString();
+                dashboard.Cam1KeepTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.Cam1KeepTable.ToString()).ToString();
+                dashboard.Cam1ThrowTableRows.Text = dataAccess.GeneralTable_getNrOfRows(TableNames.Cam1ThrowTable.ToString()).ToString();
                 dashboard.PicturesInWorkFolder.Text = Directory.GetFiles(cam1.pathFolderWork, "*", SearchOption.AllDirectories).Length.ToString();
                 dashboard.PicturesInKeepFolder.Text = Directory.GetFiles(cam1.pathFolderKeep, "*", SearchOption.AllDirectories).Length.ToString();
 

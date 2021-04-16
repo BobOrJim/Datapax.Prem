@@ -21,14 +21,14 @@ namespace Presentation
         public Boolean runCamera1 { get; set; }
         public Boolean _flushCamera1Folder { get; set; }
         MyStartup taskManager;
-        public DataAccessGeneralTablesNEW _dataAccessGeneralTablesNEW;
+        public DataAccess _dataAccessGeneralTablesNEW;
 
         public Dashboard(MyStartup _taskManager)
         {
             InitializeComponent();
             taskManager = _taskManager;
             taskManager.GetDashboardReference(this);
-            _dataAccessGeneralTablesNEW = new DataAccessGeneralTablesNEW();
+            _dataAccessGeneralTablesNEW = new DataAccess();
             //TaskManager.GetDashboardReference(this);
         }
 
@@ -139,8 +139,8 @@ namespace Presentation
         private async void IODeviationTable_Insert_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine($"Trycker på  IODeviationTable_Insert_Click");
-            List<IOSampleModel> _samples = new List<IOSampleModel>();
-            IOSampleModel _sample = new IOSampleModel();
+            List<IOSampleModel2> _samples = new List<IOSampleModel2>();
+            IOSampleModel2 _sample = new IOSampleModel2();
             _sample.DeviationID_TEXT = DeviationTextBox.Text;
             DeviationTextBox.Text = "";
             _samples.Add(_sample);

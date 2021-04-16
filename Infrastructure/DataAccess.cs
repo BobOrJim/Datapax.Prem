@@ -8,13 +8,14 @@ using System.Configuration;
 using Dapper;
 using Models;
 using Interfaces;
-
+using GlobalStringsReadOnly;
+using System.Diagnostics;
 
 namespace Infrastructure
 {
-    public class DataAccessGeneralTablesNEW : IDataAccessGeneralTablesNEW
+    public class DataAccess : IDataAccess
     {
-        private static string sqlColumns { get; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, @Bit1, @Bit2, @Bit3";
+        //private static string sqlColumns { get; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, @Bit1, @Bit2, @Bit3";
 
         private static string sqlPictureColumns { get; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, " +
             "@PictureFileNamePrefix_TEXT, " +
@@ -75,7 +76,7 @@ namespace Infrastructure
                 System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_flush: " + e);
             }
         }
-        public void GeneralTable_insertIOObject(string tableName, List<IOSampleModel> _samples)
+        public void GeneralTable_insertIOObject(string tableName, List<IOSampleModel2> _samples)
         {
             try
             {
@@ -88,37 +89,46 @@ namespace Infrastructure
                         {
                             case "IOOddTable": //Denna rackare accepterar inte mina Enum
                                 _sql_part1 = StoredProceduresIO.IOOddTable_insert.ToString();
+                                //Debug.WriteLine("Trying with GeneralTable_insertIOObject. Table IOOddTable");
                                 break;
                             case "IOEvenTable":
                                 _sql_part1 = StoredProceduresIO.IOEvenTable_insert.ToString();
+                                //Debug.WriteLine("Trying with GeneralTable_insertIOObject. Table IOEvenTable");
                                 break;
                             case "IOKeepTable":
                                 _sql_part1 = StoredProceduresIO.IOKeepTable_insert.ToString();
+                                //Debug.WriteLine("Trying with GeneralTable_insertIOObject. Table IOKeepTable");
                                 break;
                             case "IODeviationTable":
                                 _sql_part1 = StoredProceduresIO.IODeviationTable_Insert.ToString();
+                                //Debug.WriteLine("Trying with GeneralTable_insertIOObject. Table IODeviationTable");
                                 break;
                             default:
                                 System.Diagnostics.Debug.WriteLine($"In GeneralTable_insert: Wrong tableName inparam");
                                 break;
                         }
-                        string _sqlSp = _sql_part1 + sqlColumns;
+                        string _sqlSp = _sql_part1 + GlobalReadOnlyStrings.IOTablesTemplateColumnNames;
                         //System.Diagnostics.Debug.WriteLine($"In GeneralTable_insert: Skickar sql med grejor till {_sql_part1}");
+                        //Debug.WriteLine(_sqlSp);
+                        //foreach (var item in _samples)
+                        //{
+                        //    Debug.WriteLine(item.Timestamp_unix_BIGINT.ToString());
+                        //}
+
+                        //Debug.WriteLine(string.Join("\n", _samples));
                         connection.Execute(_sqlSp, _samples);
                     }
                     catch (Exception e)
                     {
-                        System.Diagnostics.Debug.WriteLine($"Exception in GeneralTable_insertIOObject. input tableName= {tableName}: " + e);
+                        System.Diagnostics.Debug.WriteLine($"Exception1 in GeneralTable_insertIOObject. input tableName= {tableName}: " + e);
                     }
                 }
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in GeneralTable_insertIOObject. input tableName= {tableName}: " + e);
+                System.Diagnostics.Debug.WriteLine($"Exception2 in GeneralTable_insertIOObject. input tableName= {tableName}: " + e);
             }
         }
-
-
         public int GeneralTable_getNrOfRows(string tableName)
         {
             int _rowsInFactoryTable = -1;
@@ -138,17 +148,17 @@ namespace Infrastructure
             }
             return _rowsInFactoryTable;
         }
-        public List<IOSampleModel> GeneralTable_cutAllPostsInTable(string tableName)
+        public List<IOSampleModel2> GeneralTable_cutAllPostsInTable(string tableName)
         {
-            List<IOSampleModel> _factorySamples = new List<IOSampleModel>();
+            List<IOSampleModel2> _factorySamples = new List<IOSampleModel2>();
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
                     string _sqlSp = StoredProceduresIO.IOTable_getAllPostsInTable.ToString() + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
-                    _factorySamples = connection.Query<IOSampleModel>(_sqlSp, _sqlSpParams).ToList();
-                    foreach (IOSampleModel element in _factorySamples)
+                    _factorySamples = connection.Query<IOSampleModel2>(_sqlSp, _sqlSpParams).ToList();
+                    foreach (IOSampleModel2 element in _factorySamples)
                     {
                         //System.Diagnostics.Debug.WriteLine($"In GeneralTable_getAllRows {element.Datestamp_TEXT}");
                     }
@@ -161,17 +171,17 @@ namespace Infrastructure
             }
             return _factorySamples;
         }
-        public List<IOSampleModel> GeneralTable_getAllPostsInTable(string tableName)
+        public List<IOSampleModel2> GeneralTable_getAllPostsInTable(string tableName)
         {
-            List<IOSampleModel> _factorySamples = new List<IOSampleModel>();
+            List<IOSampleModel2> _factorySamples = new List<IOSampleModel2>();
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
                     string _sqlSp = StoredProceduresIO.IOTable_getAllPostsInTable.ToString() + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
-                    _factorySamples = connection.Query<IOSampleModel>(_sqlSp, _sqlSpParams).ToList();
-                    foreach (IOSampleModel element in _factorySamples)
+                    _factorySamples = connection.Query<IOSampleModel2>(_sqlSp, _sqlSpParams).ToList();
+                    foreach (IOSampleModel2 element in _factorySamples)
                     {
                         //System.Diagnostics.Debug.WriteLine($"In GeneralTable_getAllRows {element.Datestamp_TEXT}");
                     }
@@ -202,16 +212,16 @@ namespace Infrastructure
                 System.Diagnostics.Debug.WriteLine($"Exception in my GetLatestDeviation: " + e);
             }
         }
-        public List<IOSampleModel> GeneralTable_cutPostsBetweenInTable(string tableName, Int64 startTime, Int64 endTime)
+        public List<IOSampleModel2> GeneralTable_cutPostsBetweenInTable(string tableName, Int64 startTime, Int64 endTime)
         {
-            List<IOSampleModel> _result = new List<IOSampleModel>();
+            List<IOSampleModel2> _result = new List<IOSampleModel2>();
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
                     string _sqlSp = StoredProceduresIO.IOTable_cutPostsBetweenInTable.ToString() + " @TABLE, @startTime, @endTime";
                     var _sqlSpParams = new { TABLE = tableName, startTime = startTime.ToString(), endTime = endTime.ToString() };
-                    _result = connection.Query<IOSampleModel>(_sqlSp, _sqlSpParams).ToList();
+                    _result = connection.Query<IOSampleModel2>(_sqlSp, _sqlSpParams).ToList();
 
                     //Stämplar samplingar med vilken avvikelse som var aktuell när denna metod anropades.
                     if (GetLatestDeviation() != null)
@@ -249,7 +259,7 @@ namespace Infrastructure
                     var sql = "SELECT * FROM " + cutTable + " WHERE" +
                         " Timestamp_unix_BIGINT < " + _endTime + "AND " +
                         "Timestamp_unix_BIGINT > " + _startTime;
-                    var _iOSampleModelList = connection.Query<IOSampleModel>(sql);
+                    var _iOSampleModelList = connection.Query<IOSampleModel2>(sql);
                     //Console.WriteLine($"Antal samplingar relaterade till sista avvikelse är: {_iOSampleKEPList.Count()}");
 
                     //Markera samplingar med vilken avvikelse de blev flyttade av
@@ -399,9 +409,5 @@ namespace Infrastructure
             }
             return _result;
         }
-
-
-
-
     }
 }

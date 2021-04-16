@@ -12,10 +12,10 @@ namespace ApplicationCore.Cam
     public class Cam1GarbageCollector
     {
 
-        public IDataAccessGeneralTablesNEW dataAccessGeneralTables;
+        public IDataAccess dataAccessGeneralTables;
         private List<PictureSampleModel> pictureSamples;
 
-        public Cam1GarbageCollector(IDataAccessGeneralTablesNEW _iDataAccessGeneralTables)
+        public Cam1GarbageCollector(IDataAccess _iDataAccessGeneralTables)
         {
             dataAccessGeneralTables = _iDataAccessGeneralTables;
         }

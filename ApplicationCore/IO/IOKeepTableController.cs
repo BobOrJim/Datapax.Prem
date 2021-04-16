@@ -11,8 +11,8 @@ namespace ApplicationCore.IO
 {
     public class IOKeepTableController
     {
-        public IDataAccessGeneralTablesNEW idataAccessGeneralTables;
-        public IOKeepTableController(IDataAccessGeneralTablesNEW _IDataAccessGeneralTables)
+        public IDataAccess idataAccessGeneralTables;
+        public IOKeepTableController(IDataAccess _IDataAccessGeneralTables)
         {
             idataAccessGeneralTables = _IDataAccessGeneralTables;
         }
@@ -31,7 +31,7 @@ namespace ApplicationCore.IO
 
         public void lookForDataToMoveToKeepTable(Int64 _latestDeviationTime_unixTime, string TimeBeforeDeviationTextBox, string TimeAfterDeviationTextBox)
         {
-            List<IOSampleModel> _samples = new List<IOSampleModel>();
+            List<IOSampleModel2> _samples = new List<IOSampleModel2>();
             Int64 _fromtime = 0;
             Int64 _toTime = 0;
             try
@@ -58,10 +58,10 @@ namespace ApplicationCore.IO
 
         public Int64 getUnixTimeOfLatestDeviation()
         {
-            List<IOSampleModel> _result = new List<IOSampleModel>();
+            List<IOSampleModel2> _result = new List<IOSampleModel2>();
             _result = idataAccessGeneralTables.GeneralTable_getAllPostsInTable(TableNames.IODeviationTable.ToString());
             Int64 _latestDeviationTime_unixTime = 0;
-            foreach (IOSampleModel item in _result)
+            foreach (IOSampleModel2 item in _result)
             {
                 _latestDeviationTime_unixTime = Math.Max(_latestDeviationTime_unixTime, item.Timestamp_unix_BIGINT);
             }

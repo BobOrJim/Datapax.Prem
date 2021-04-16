@@ -17,10 +17,10 @@ namespace ApplicationCore.IO
         private static int _unixTimeSeconds;
         private static int _unixTimeMinutes;
         private static int _unixTimeSecondsMod60;
-        private static List<IOSampleModel> samples = new List<IOSampleModel>();
-        public IDataAccessGeneralTablesNEW dataAccessGeneralTables; //instans skall jag döpa om till litet i först....
+        private static List<IOSampleModel2> samples = new List<IOSampleModel2>();
+        public IDataAccess dataAccessGeneralTables; //instans skall jag döpa om till litet i först....
 
-        public IOEvenTableController(IDataAccessGeneralTablesNEW _IDataAccessGeneralTables)
+        public IOEvenTableController(IDataAccess _IDataAccessGeneralTables)
         {
             dataAccessGeneralTables = _IDataAccessGeneralTables;
         }
@@ -42,12 +42,12 @@ namespace ApplicationCore.IO
             }
         }
 
-        public List<IOSampleModel> cutPostsInFactoryTable()
+        public List<IOSampleModel2> cutPostsInFactoryTable()
         {
             //List<IOSampleModel> test = new List<IOSampleModel>(); //Vid test av moq test.
             return dataAccessGeneralTables.GeneralTable_cutAllPostsInTable(TableNames.FactoryTable.ToString());
         }
-        public void InsertPostsInEvenTable(List<IOSampleModel> _samples)
+        public void InsertPostsInEvenTable(List<IOSampleModel2> _samples)
         {
             dataAccessGeneralTables.GeneralTable_insertIOObject(TableNames.IOEvenTable.ToString(), _samples);
         }
