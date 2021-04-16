@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 //using DataAccess;
 using Models;
 using Interfaces;
+using GlobalStringsReadOnly;
 
 namespace ApplicationCore.IO
 {
@@ -39,13 +40,13 @@ namespace ApplicationCore.IO
 
         public void OddMinute() //Flyttar från FactoryTable till IOOddTable
         {
-            _samples = iDataAccessGeneralTables.GeneralTable_cutAllPostsInTable(TableNames.FactoryTable.ToString());
-            iDataAccessGeneralTables.GeneralTable_insertIOObject(TableNames.IOOddTable.ToString(), _samples);
+            _samples = iDataAccessGeneralTables.GeneralTable_cutAllPostsInTable(GlobalReadOnlyStrings.FactoryTable);
+            iDataAccessGeneralTables.GeneralTable_insertIOObject(GlobalReadOnlyStrings.IOOddTable, _samples);
         }
 
         public void OddMinuteAnd50Seconds() //Spolar IOEvenTable
         {
-            iDataAccessGeneralTables.GeneralTable_flush(TableNames.IOEvenTable.ToString());
+            iDataAccessGeneralTables.GeneralTable_flush(GlobalReadOnlyStrings.IOEvenTable);
         }
     }
 }

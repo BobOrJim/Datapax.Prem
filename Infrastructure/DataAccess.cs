@@ -34,7 +34,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresIO.IOTable_createIOTemplateTable.ToString() + " @TABLE";
+                    string _sqlSp = GlobalReadOnlyStrings.IOTable_createIOTemplateTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
                     connection.Query(_sqlSp, _sqlSpParams);
                 }
@@ -50,7 +50,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresIO.IOTable_deleteTable.ToString() + " @TABLE";
+                    string _sqlSp = GlobalReadOnlyStrings.IOTable_deleteTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
                     connection.Query(_sqlSp, _sqlSpParams);
                 }
@@ -66,7 +66,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresIO.IOTable_deleteAllPostsInTable.ToString() + " @TABLE";
+                    string _sqlSp = GlobalReadOnlyStrings.IOTable_deleteAllPostsInTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
                     connection.Query(_sqlSp, _sqlSpParams);
                 }
@@ -88,19 +88,19 @@ namespace Infrastructure
                         switch (tableName)
                         {
                             case "IOOddTable": //Denna rackare accepterar inte mina Enum
-                                _sql_part1 = StoredProceduresIO.IOOddTable_insert.ToString();
+                                _sql_part1 = GlobalReadOnlyStrings.IOOddTable_insert;
                                 //Debug.WriteLine("Trying with GeneralTable_insertIOObject. Table IOOddTable");
                                 break;
                             case "IOEvenTable":
-                                _sql_part1 = StoredProceduresIO.IOEvenTable_insert.ToString();
+                                _sql_part1 = GlobalReadOnlyStrings.IOEvenTable_insert;
                                 //Debug.WriteLine("Trying with GeneralTable_insertIOObject. Table IOEvenTable");
                                 break;
                             case "IOKeepTable":
-                                _sql_part1 = StoredProceduresIO.IOKeepTable_insert.ToString();
+                                _sql_part1 = GlobalReadOnlyStrings.IOKeepTable_insert;
                                 //Debug.WriteLine("Trying with GeneralTable_insertIOObject. Table IOKeepTable");
                                 break;
                             case "IODeviationTable":
-                                _sql_part1 = StoredProceduresIO.IODeviationTable_Insert.ToString();
+                                _sql_part1 = GlobalReadOnlyStrings.IODeviationTable_Insert;
                                 //Debug.WriteLine("Trying with GeneralTable_insertIOObject. Table IODeviationTable");
                                 break;
                             default:
@@ -136,7 +136,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresIO.IOTable_getPostCountInTable.ToString() + " @TABLE";
+                    string _sqlSp = GlobalReadOnlyStrings.IOTable_getPostCountInTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
                     _rowsInFactoryTable = connection.Query<int>(_sqlSp, _sqlSpParams).SingleOrDefault();
                     //System.Diagnostics.Debug.WriteLine($"ANTAL RADER ÄR: {_rowsInFactoryTable}");
@@ -155,7 +155,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresIO.IOTable_getAllPostsInTable.ToString() + " @TABLE";
+                    string _sqlSp = GlobalReadOnlyStrings.IOTable_getAllPostsInTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
                     _factorySamples = connection.Query<IOSampleModel2>(_sqlSp, _sqlSpParams).ToList();
                     foreach (IOSampleModel2 element in _factorySamples)
@@ -178,7 +178,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresIO.IOTable_getAllPostsInTable.ToString() + " @TABLE";
+                    string _sqlSp = GlobalReadOnlyStrings.IOTable_getAllPostsInTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
                     _factorySamples = connection.Query<IOSampleModel2>(_sqlSp, _sqlSpParams).ToList();
                     foreach (IOSampleModel2 element in _factorySamples)
@@ -219,7 +219,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresIO.IOTable_cutPostsBetweenInTable.ToString() + " @TABLE, @startTime, @endTime";
+                    string _sqlSp = GlobalReadOnlyStrings.IOTable_cutPostsBetweenInTable + " @TABLE, @startTime, @endTime";
                     var _sqlSpParams = new { TABLE = tableName, startTime = startTime.ToString(), endTime = endTime.ToString() };
                     _result = connection.Query<IOSampleModel2>(_sqlSp, _sqlSpParams).ToList();
 
@@ -329,7 +329,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresPictures.PictureTable_createPictureTemplateTable.ToString() + " @TABLE";
+                    string _sqlSp = GlobalReadOnlyStrings.PictureTable_createPictureTemplateTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
                     connection.Query(_sqlSp, _sqlSpParams);
                 }
@@ -351,16 +351,16 @@ namespace Infrastructure
                         switch (tableName)
                         {
                             case "Cam1OddTable": //Denna rackare accepterar inte mina Enum
-                                _sql_part1 = StoredProceduresPictures.Cam1OddTable_Insert.ToString();
+                                _sql_part1 = GlobalReadOnlyStrings.Cam1OddTable_Insert;
                                 break;
                             case "Cam1EvenTable":
-                                _sql_part1 = StoredProceduresPictures.Cam1EvenTable_Insert.ToString();
+                                _sql_part1 = GlobalReadOnlyStrings.Cam1EvenTable_Insert;
                                 break;
                             case "Cam1KeepTable":
-                                _sql_part1 = StoredProceduresPictures.Cam1KeepTable_Insert.ToString();
+                                _sql_part1 = GlobalReadOnlyStrings.Cam1KeepTable_Insert;
                                 break;
                             case "Cam1ThrowTable":
-                                _sql_part1 = StoredProceduresPictures.Cam1ThrowTable_Insert.ToString();
+                                _sql_part1 = GlobalReadOnlyStrings.Cam1ThrowTable_Insert;
                                 break;
                             default:
                                 System.Diagnostics.Debug.WriteLine($"In GeneralTable_insertPictureObject: Wrong tableName inparam!!!!!!!! {tableName}");
@@ -388,7 +388,7 @@ namespace Infrastructure
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
                 {
-                    string _sqlSp = StoredProceduresPictures.PictureTable_cutPostsBetweenInTable.ToString() + " @TABLE, @startTime, @endTime";
+                    string _sqlSp = GlobalReadOnlyStrings.PictureTable_cutPostsBetweenInTable + " @TABLE, @startTime, @endTime";
                     var _sqlSpParams = new { TABLE = tableName, startTime = startTime.ToString(), endTime = endTime.ToString() };
                     _result = connection.Query<PictureSampleModel>(_sqlSp, _sqlSpParams).ToList();
 

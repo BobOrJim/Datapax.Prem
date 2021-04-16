@@ -87,7 +87,6 @@
     <Compile Include="Cam\Cam1OddTableController.cs" />
     <Compile Include="Cam\CameraController.cs" />
     <Compile Include="Cam\PictureController.cs" />
-    <Compile Include="Enum.cs" />
     <Compile Include="IO\DeviationCheck.cs" />
     <Compile Include="IO\IOEvenTableController.cs" />
     <Compile Include="IO\IOKeepTableController.cs" />
@@ -98,6 +97,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlobalStringsReadOnly\GlobalStringsReadOnly.csproj">
+      <Project>{66aacd9c-8913-41b0-b781-666e2c79687d}</Project>
+      <Name>GlobalStringsReadOnly</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{01106f65-9669-4ec3-82fe-74b767878b59}</Project>
       <Name>Interfaces</Name>

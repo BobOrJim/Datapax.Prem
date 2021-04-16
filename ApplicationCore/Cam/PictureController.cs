@@ -8,6 +8,7 @@ using Models;
 using Interfaces;
 using System.IO;
 using System.Drawing.Imaging;
+using GlobalStringsReadOnly;
 
 namespace ApplicationCore.Cam
 {
@@ -64,11 +65,11 @@ namespace ApplicationCore.Cam
 
             if (unixTimeMinutes % 2 == 0) 
             {
-                dataAccessGeneralTables.GeneralTable_insertPictureObject(TableNames.Cam1EvenTable.ToString(), pictureSamples);
+                dataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1EvenTable, pictureSamples);
             }
             else
             {
-                dataAccessGeneralTables.GeneralTable_insertPictureObject(TableNames.Cam1OddTable.ToString(), pictureSamples);
+                dataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1OddTable, pictureSamples);
             }
         }
 

@@ -159,7 +159,7 @@ namespace Presentation
 
 
 
-                //            System.Diagnostics.Debug.WriteLine($"Altal filer är  = {fCount}");
+                //System.Diagnostics.Debug.WriteLine($"Altal filer är  = {fCount}");
                 //GeneralTable.GeneralTable_cutPastePostsbetween(TableNames.FactoryTable.ToString(), TableNames.IOKeepTable.ToString(), 10000, 10000);
 
                 //_dashboard.flowLineToOdd.Visible = false;

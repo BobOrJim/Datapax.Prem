@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Models;
 using Interfaces;
+using GlobalStringsReadOnly;
 
 namespace ApplicationCore.IO
 {
@@ -49,17 +50,17 @@ namespace ApplicationCore.IO
                 //Console.WriteLine($"  _unixTimeMilliseconds : {_unixTimeMilliseconds}");
                 //Console.WriteLine($"  _latestDeviationTime_unixTime  : {_latestDeviationTime_unixTime}");
                 //Console.WriteLine($"  Convert.ToInt64(TimeBeforeDeviationTextBox) : {Convert.ToInt64(TimeBeforeDeviationTextBox)}");
-                _samples = idataAccessGeneralTables.GeneralTable_cutPostsBetweenInTable(TableNames.IOOddTable.ToString(), _fromtime, _toTime);
-                idataAccessGeneralTables.GeneralTable_insertIOObject(TableNames.IOKeepTable.ToString(), _samples);
-                _samples = idataAccessGeneralTables.GeneralTable_cutPostsBetweenInTable(TableNames.IOEvenTable.ToString(), _fromtime, _toTime);
-                idataAccessGeneralTables.GeneralTable_insertIOObject(TableNames.IOKeepTable.ToString(), _samples);
+                _samples = idataAccessGeneralTables.GeneralTable_cutPostsBetweenInTable(GlobalReadOnlyStrings.IOOddTable, _fromtime, _toTime);
+                idataAccessGeneralTables.GeneralTable_insertIOObject(GlobalReadOnlyStrings.IOKeepTable, _samples);
+                _samples = idataAccessGeneralTables.GeneralTable_cutPostsBetweenInTable(GlobalReadOnlyStrings.IOEvenTable, _fromtime, _toTime);
+                idataAccessGeneralTables.GeneralTable_insertIOObject(GlobalReadOnlyStrings.IOKeepTable, _samples);
             }
         }
 
         public Int64 getUnixTimeOfLatestDeviation()
         {
             List<IOSampleModel2> _result = new List<IOSampleModel2>();
-            _result = idataAccessGeneralTables.GeneralTable_getAllPostsInTable(TableNames.IODeviationTable.ToString());
+            _result = idataAccessGeneralTables.GeneralTable_getAllPostsInTable(GlobalReadOnlyStrings.IODeviationTable);
             Int64 _latestDeviationTime_unixTime = 0;
             foreach (IOSampleModel2 item in _result)
             {

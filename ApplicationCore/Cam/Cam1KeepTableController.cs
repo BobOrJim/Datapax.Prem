@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using Models;
+using GlobalStringsReadOnly;
 
 namespace ApplicationCore.Cam
 {
@@ -23,12 +24,12 @@ namespace ApplicationCore.Cam
             List<PictureSampleModel> deviationPictureSamplesFromEven;
             Int64 _latestDeviationTime_unixTime = getUnixTimeOfLatestDeviation();
 
-            deviationPictureSamplesFromOdd = lookForDeviationDataInTable(TableNames.Cam1OddTable.ToString(), _latestDeviationTime_unixTime, timeBeforeDeviationTextBox, timeAfterDeviationTextBox);
+            deviationPictureSamplesFromOdd = lookForDeviationDataInTable(GlobalReadOnlyStrings.Cam1OddTable, _latestDeviationTime_unixTime, timeBeforeDeviationTextBox, timeAfterDeviationTextBox);
             MoveThesePictureFilesToKeepFolder(deviationPictureSamplesFromOdd);
             //här gäller det att vara vaksam på pass by value eller pass by ref
             MoveThesePostsToKeep(deviationPictureSamplesFromOdd);
 
-            deviationPictureSamplesFromEven = lookForDeviationDataInTable(TableNames.Cam1EvenTable.ToString(), _latestDeviationTime_unixTime, timeBeforeDeviationTextBox, timeAfterDeviationTextBox);
+            deviationPictureSamplesFromEven = lookForDeviationDataInTable(GlobalReadOnlyStrings.Cam1EvenTable, _latestDeviationTime_unixTime, timeBeforeDeviationTextBox, timeAfterDeviationTextBox);
             MoveThesePictureFilesToKeepFolder(deviationPictureSamplesFromEven);
             MoveThesePostsToKeep(deviationPictureSamplesFromEven);
         }
@@ -51,7 +52,7 @@ namespace ApplicationCore.Cam
         }
         public void MoveThesePostsToKeep(List<PictureSampleModel> deviationPictureSamples)
         {
-            iDataAccessGeneralTables.GeneralTable_insertPictureObject(TableNames.Cam1KeepTable.ToString(), deviationPictureSamples);
+            iDataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1KeepTable, deviationPictureSamples);
         }
 
         public List<PictureSampleModel> lookForDeviationDataInTable(string tableName, Int64 _latestDeviationTime_unixTime, string TimeBeforeDeviationTextBox, string TimeAfterDeviationTextBox)
@@ -78,7 +79,7 @@ namespace ApplicationCore.Cam
         public Int64 getUnixTimeOfLatestDeviation()
         {
             List<IOSampleModel2> _result = new List<IOSampleModel2>();
-            _result = iDataAccessGeneralTables.GeneralTable_getAllPostsInTable(TableNames.IODeviationTable.ToString());
+            _result = iDataAccessGeneralTables.GeneralTable_getAllPostsInTable(GlobalReadOnlyStrings.IODeviationTable);
             Int64 _latestDeviationTime_unixTime = 0;
             foreach (IOSampleModel2 item in _result)
             {

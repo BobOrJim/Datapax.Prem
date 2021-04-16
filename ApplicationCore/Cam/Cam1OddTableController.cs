@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using Models;
+using GlobalStringsReadOnly;
 
 namespace ApplicationCore.Cam
 {
@@ -25,9 +26,9 @@ namespace ApplicationCore.Cam
             int unixTimeSecondsMod60 = unixTimeSeconds % 60;
             if (unixTimeMinutes % 2 == 1 && unixTimeSecondsMod60 == 50) //Vid sekund 50, skall en db spolas.
             {
-                pictureSamples = dataAccessGeneralTables.PictureTable_cutPostsBetweenInTable(TableNames.Cam1EvenTable.ToString(), 0, Int64.MaxValue);
+                pictureSamples = dataAccessGeneralTables.PictureTable_cutPostsBetweenInTable(GlobalReadOnlyStrings.Cam1EvenTable, 0, Int64.MaxValue);
                 //System.Diagnostics.Debug.WriteLine($"Antal objekt i Even är: " + pictureSamples.Count());
-                dataAccessGeneralTables.GeneralTable_insertPictureObject(TableNames.Cam1ThrowTable.ToString(), pictureSamples);
+                dataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1ThrowTable, pictureSamples);
             }
         }
     }

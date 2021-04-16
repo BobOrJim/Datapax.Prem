@@ -26,7 +26,7 @@ namespace Infrastructure
                     _samples.Add(_sample);
                     try
                     {
-                        string _sqlSp = StoredProceduresIO.FactoryTable_insert.ToString() + GlobalReadOnlyStrings.IOTablesTemplateColumnNames;
+                        string _sqlSp = GlobalReadOnlyStrings.FactoryTable_insert + GlobalReadOnlyStrings.IOTablesTemplateColumnNames;
 
                         //string _sqlSp = "FactoryTable_insert" + sqlColumns;
                         //System.Diagnostics.Debug.WriteLine($"_sqlSp = : {_sqlSp}");

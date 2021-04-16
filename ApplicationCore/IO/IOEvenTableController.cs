@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 //using DataAccess;
 using Models;
 using Interfaces;
-
+using GlobalStringsReadOnly;
 
 
 
@@ -45,22 +45,22 @@ namespace ApplicationCore.IO
         public List<IOSampleModel2> cutPostsInFactoryTable()
         {
             //List<IOSampleModel> test = new List<IOSampleModel>(); //Vid test av moq test.
-            return dataAccessGeneralTables.GeneralTable_cutAllPostsInTable(TableNames.FactoryTable.ToString());
+            return dataAccessGeneralTables.GeneralTable_cutAllPostsInTable(GlobalReadOnlyStrings.FactoryTable);
         }
         public void InsertPostsInEvenTable(List<IOSampleModel2> _samples)
         {
-            dataAccessGeneralTables.GeneralTable_insertIOObject(TableNames.IOEvenTable.ToString(), _samples);
+            dataAccessGeneralTables.GeneralTable_insertIOObject(GlobalReadOnlyStrings.IOEvenTable, _samples);
         }
 
         public void MoveFromFactoryTableToEvenTable() //Flyttar från FactoryTable till IOOddTable
         {
-            samples = dataAccessGeneralTables.GeneralTable_cutAllPostsInTable(TableNames.FactoryTable.ToString());
-            dataAccessGeneralTables.GeneralTable_insertIOObject(TableNames.IOEvenTable.ToString(), samples);
+            samples = dataAccessGeneralTables.GeneralTable_cutAllPostsInTable(GlobalReadOnlyStrings.FactoryTable);
+            dataAccessGeneralTables.GeneralTable_insertIOObject(GlobalReadOnlyStrings.IOEvenTable, samples);
         }
 
         public void FlushOddTable() //Spolar IOOddTable
         {
-            dataAccessGeneralTables.GeneralTable_flush(TableNames.IOOddTable.ToString());
+            dataAccessGeneralTables.GeneralTable_flush(GlobalReadOnlyStrings.IOOddTable);
         }
     }
 }

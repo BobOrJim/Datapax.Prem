@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces;
 using Models;
+using GlobalStringsReadOnly;
 
 namespace ApplicationCore.Cam
 {
@@ -22,7 +23,7 @@ namespace ApplicationCore.Cam
 
         public void Run()
         {
-            pictureSamples = dataAccessGeneralTables.PictureTable_cutPostsBetweenInTable(TableNames.Cam1ThrowTable.ToString(), 0, Int64.MaxValue);
+            pictureSamples = dataAccessGeneralTables.PictureTable_cutPostsBetweenInTable(GlobalReadOnlyStrings.Cam1ThrowTable, 0, Int64.MaxValue);
             RemovePicturesFromDisk(pictureSamples);
         }
 
