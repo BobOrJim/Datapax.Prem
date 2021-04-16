@@ -1,18 +1,23 @@
 
 
-1.1 Kommentera SP med syfte o hur de skall byggas om
 
-1.2: Redusera insert SP
+1: Hub-2-Hub_KKS123_SystemVolt_Erratic ....
 
-1.5 ändra Deviation till Trigger.
 
-2: Ta bort Enum, och ersät med globalStrings.
+
+
+
+
+(ps. Detta gäller inte för pics som tur är.....)
+
+
+
+
+2: Ta bort Enum, och ersätt med globalStrings. Gällande Enum är den i Presentation.
 
 
 3: Gå över och snygga till
-	- Fundera på om knappars action skall plaeras i en UseCase folder någonting.
 
-3.5: Testa varje knapp
 
 
 4: köp kamera, implementera DB/SP mm
@@ -21,7 +26,13 @@
 5: Samla in data
 
 
+5.5 Gör några xUnit och Moq tester.
+
+
 6: Gör film
+
+
+
 
 
 ********

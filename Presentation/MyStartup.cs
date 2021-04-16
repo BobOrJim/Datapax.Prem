@@ -10,6 +10,7 @@ using ApplicationCore.IO;
 using Infrastructure;
 using Interfaces;
 using ApplicationCore.Cam;
+using GlobalStringsReadOnly;
 
 namespace Presentation
 {
@@ -133,8 +134,8 @@ namespace Presentation
         {
             
             dashboard.Invoke((MethodInvoker)delegate
-            {  // To access the UI thread synchronous
-               //Thread.Sleep(500);
+            {  // To access the UI thread 
+                //Thread.Sleep(500);
 
                 dashboard.UIClockString.Text = DateTime.Now.ToString("HH:mm:ss"); ;
                 var UnixTimeSeconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();

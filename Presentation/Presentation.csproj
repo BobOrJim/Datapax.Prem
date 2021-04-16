@@ -137,7 +137,6 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlobalReadOnlyStrings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyStartup.cs" />
@@ -169,6 +168,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlobalStringsReadOnly\GlobalStringsReadOnly.csproj">
+      <Project>{66aacd9c-8913-41b0-b781-666e2c79687d}</Project>
+      <Name>GlobalStringsReadOnly</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{aa3cec1a-33da-4325-9173-60b29394efa8}</Project>
       <Name>Infrastructure</Name>

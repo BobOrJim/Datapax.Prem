@@ -11,15 +11,15 @@ namespace Presentation
         [STAThread]
         static void Main()
         {
-            MyStartup taskManager = new MyStartup();
+            MyStartup myStartup = new MyStartup();
             //InterfaceAndInherit myPlayAround = new InterfaceAndInherit();
             //myPlayAround.RunStore();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            taskManager.SimulatorTask();
-            taskManager.WorkerTask();
-            Application.Run(new Dashboard(taskManager));
+            myStartup.SimulatorTask();
+            myStartup.WorkerTask();
+            Application.Run(new Dashboard(myStartup));
         }
     }
 }

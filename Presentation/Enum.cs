@@ -28,7 +28,8 @@ enum StoredProceduresIO //Dessa matchar exakt SP namn, och namn på sql fil.
     IOOddTable_insert,
     IOEvenTable_insert,
     IOKeepTable_insert,
-    IODeviationTable_Insert
+    IODeviationTable_Insert,
+    IOTable_insertInTable
 }
 
 enum StoredProceduresPictures //Dessa matchar exakt SP namn, och namn på sql fil.

@@ -99,7 +99,7 @@ namespace Infrastructure
                                 _sql_part1 = StoredProceduresIO.IODeviationTable_Insert.ToString();
                                 break;
                             default:
-                                System.Diagnostics.Debug.WriteLine($"In GeneralTable_insert: Wrong tableName inparam!!!!!!!!");
+                                System.Diagnostics.Debug.WriteLine($"In GeneralTable_insert: Wrong tableName inparam");
                                 break;
                         }
                         string _sqlSp = _sql_part1 + sqlColumns;
@@ -117,6 +117,8 @@ namespace Infrastructure
                 System.Diagnostics.Debug.WriteLine($"Exception in GeneralTable_insertIOObject. input tableName= {tableName}: " + e);
             }
         }
+
+
         public int GeneralTable_getNrOfRows(string tableName)
         {
             int _rowsInFactoryTable = -1;
@@ -311,8 +313,6 @@ namespace Infrastructure
             }
             return null;
         }
-
-
         public void GeneralTable_createPictureTemplateTable(string tableName)
         {
             try
@@ -329,7 +329,6 @@ namespace Infrastructure
                 System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_createPictureTemplateTable: " + e);
             }
         }
-
         public void GeneralTable_insertPictureObject(string tableName, List<PictureSampleModel> _samples)
         {
             try
@@ -372,7 +371,6 @@ namespace Infrastructure
                 System.Diagnostics.Debug.WriteLine($"Exception 2 in GeneralTable_insertPictureObject: intable= {tableName}" + e);
             }
         }
-
         public List<PictureSampleModel> PictureTable_cutPostsBetweenInTable(string tableName, Int64 startTime, Int64 endTime)
         {
             List<PictureSampleModel> _result = new List<PictureSampleModel>();
