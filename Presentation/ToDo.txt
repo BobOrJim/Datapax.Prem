@@ -1,20 +1,23 @@
 
 
-
-2: Ta bort Enum, och ersätt med globalStrings. Gällande Enum är den i Presentation.
-
-
 3: Gå över och snygga till
-
 
 
 4: köp kamera, implementera DB/SP mm
 
+
 5: Samla in data
+
 
 5.5 Gör några xUnit och Moq tester.
 
+
+5.75 skissa på mina slides.
+
+
 6: Gör film
+
+
 
 
 ********
@@ -23,3 +26,7 @@ Till Front
 * KANSKE SNILLEBLIXT, SUDDA INTE. ALLA TIME SPIN BOXES KAN TRÄFFA SAMMA CALLBACK FUNKTION
 * Step line chart. Skriv in detta namn i någon kommentar i Front.
 * Kanske lägga till färgglidande bakgrund, så som jag gjorde på IQR.
+
+
+
+

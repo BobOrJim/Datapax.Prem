@@ -15,16 +15,15 @@ namespace Infrastructure
 {
     public class DataAccess : IDataAccess
     {
-        //private static string sqlColumns { get; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, @Bit1, @Bit2, @Bit3";
 
-        private static string sqlPictureColumns { get; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, " +
-            "@PictureFileNamePrefix_TEXT, " +
-            "@FilePathCurrent_TEXT, @FileNameCurrent_TEXT, @FileEndingCurrent_TEXT, " +
-            "@FilePathWork_TEXT, @FileNameWork_TEXT, @FileEndingWork_TEXT, " +
-            "@FilePathKeep_TEXT, @FileNameKeep_TEXT, @FileEndingKeep_TEXT, " +
-            "@FilePathSpare1_TEXT, @FileNameSpare1_TEXT, @FileEndingSpare1_TEXT, " +
-            "@FilePathSpare2_TEXT, @FileNameSpare2_TEXT, @FileEndingSpare2_TEXT, " +
-            "@IsLabeledForGarbageCollector_BIT, @SpareBit_BIT";
+        //private static string sqlPictureColumns { get; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, " +
+        //    "@PictureFileNamePrefix_TEXT, " +
+        //    "@FilePathCurrent_TEXT, @FileNameCurrent_TEXT, @FileEndingCurrent_TEXT, " +
+        //    "@FilePathWork_TEXT, @FileNameWork_TEXT, @FileEndingWork_TEXT, " +
+        //    "@FilePathKeep_TEXT, @FileNameKeep_TEXT, @FileEndingKeep_TEXT, " +
+        //    "@FilePathSpare1_TEXT, @FileNameSpare1_TEXT, @FileEndingSpare1_TEXT, " +
+        //    "@FilePathSpare2_TEXT, @FileNameSpare2_TEXT, @FileEndingSpare2_TEXT, " +
+        //    "@IsLabeledForGarbageCollector_BIT, @SpareBit_BIT";
 
 
 
@@ -193,7 +192,7 @@ namespace Infrastructure
             }
             return _factorySamples;
         }
-        public void GeneralTable_inTableRemovePost(string tableName, IOSampleModel samples)
+        public void GeneralTable_inTableRemovePost(string tableName, IOSampleModel2 samples)
         {
             try
             {
@@ -284,7 +283,7 @@ namespace Infrastructure
                 System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_cutPostsbetween: " + e);
             }
         }
-        private IOSampleModel GetLatestDeviation()
+        private IOSampleModel2 GetLatestDeviation()
         {
             Int64 _latestDeviation = -1;
             try
@@ -294,7 +293,7 @@ namespace Infrastructure
                     var _timestamp_unix_BIGINT = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds(); // System.Int64 // 1607963957552
                     string _timestamp_unix_BIGINT_STRING = (_timestamp_unix_BIGINT - 120000).ToString();
                     var sql = "select * from IODeviationTable where Timestamp_unix_BIGINT > " + _timestamp_unix_BIGINT_STRING;
-                    var _deviationList = connection.Query<IOSampleModel>(sql);
+                    var _deviationList = connection.Query<IOSampleModel2>(sql);
                     try
                     {
                         //Console.WriteLine($"_deviationList datatype =  {_deviationList.GetType()}"); //System.Collections.Generic.List`1[DataAccess.IOSampleKEP]
@@ -302,7 +301,7 @@ namespace Infrastructure
                         if (_deviationList.Count() > 0)
                         {
                             _latestDeviation = _deviationList.Max(t => t.Timestamp_unix_BIGINT);
-                            foreach (IOSampleModel item in _deviationList)
+                            foreach (IOSampleModel2 item in _deviationList)
                             {
                                 if (item.Timestamp_unix_BIGINT == _latestDeviation)
                                 {
@@ -366,7 +365,8 @@ namespace Infrastructure
                                 System.Diagnostics.Debug.WriteLine($"In GeneralTable_insertPictureObject: Wrong tableName inparam!!!!!!!! {tableName}");
                                 break;
                         }
-                        string _sqlSp = _sql_part1 + sqlPictureColumns;
+                        string _sqlSp = _sql_part1 + GlobalReadOnlyStrings.PictureTablesTemplateColumnNames;
+                            //sqlPictureColumns;
                         //System.Diagnostics.Debug.WriteLine($"In GeneralTable_insertPictureObject: Skickar sql med grejor till {_sql_part1}");
                         connection.Execute(_sqlSp, _samples);
                     }

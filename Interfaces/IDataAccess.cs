@@ -16,7 +16,6 @@ namespace Interfaces
         int GeneralTable_getNrOfRows(string tableName);
         void GeneralTable_insertIOObject(string tableName, List<IOSampleModel2> _samples);
         void GeneralTable_insertPictureObject(string tableName, List<PictureSampleModel> _samples);
-        void GeneralTable_inTableRemovePost(string tableName, IOSampleModel samples);
         List<PictureSampleModel> PictureTable_cutPostsBetweenInTable(string tableName, long startTime, long endTime);
     }
 }

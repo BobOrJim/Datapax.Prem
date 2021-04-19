@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOSampleModel2.cs" />
-    <Compile Include="IOSampleModel.cs" />
     <Compile Include="PictureSampleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

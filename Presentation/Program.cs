@@ -12,9 +12,6 @@ namespace Presentation
         static void Main()
         {
             MyStartup myStartup = new MyStartup();
-            //InterfaceAndInherit myPlayAround = new InterfaceAndInherit();
-            //myPlayAround.RunStore();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             myStartup.SimulatorTask();

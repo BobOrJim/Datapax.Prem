@@ -13,7 +13,6 @@ namespace Infrastructure
 {
     public class DataAccessFactoryTable
     {
-        //public static string sqlColumns { get; set; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, @Bit1, @Bit2, @Bit3";
 
         public static void FactoryTable_insert()
         {
@@ -32,7 +31,7 @@ namespace Infrastructure
                         //System.Diagnostics.Debug.WriteLine($"_sqlSp = : {_sqlSp}");
                         for (var i = 0; i < _samples.Count; i++)
                         {
-                            _samples[i].ToTable_TEXT = "Tjabadab";
+                            _samples[i].ToTable_TEXT = "Hej";
                         }
                         connection.Execute(_sqlSp, _samples);
                     }
@@ -47,29 +46,5 @@ namespace Infrastructure
                 System.Diagnostics.Debug.WriteLine($"Exception in class DataAccessFactoryTable Method FactoryTable_insert: " + e);
             }
          }
-
-        public static List<IOSampleModel> FactoryTable_GetAllRows()
-        {
-            List<IOSampleModel> _factorySamples = new List<IOSampleModel>();
-            try
-            {
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["myDB"].ConnectionString))
-                {
-                    _factorySamples = connection.Query<IOSampleModel>("dbo.FactoryTable_getAllRows", commandType: CommandType.StoredProcedure).ToList();
-                    connection.Execute("dbo.FactoryTable_flush");
-                    //System.Diagnostics.Debug.WriteLine($"_factorySamples.GetType() är: {_factorySamples.GetType()}");
-                    //System.Diagnostics.Debug.WriteLine($"_factorySamples.Count() är : {_factorySamples.Count()}");
-                    foreach (IOSampleModel element in _factorySamples)
-                    {
-                        //Console.WriteLine($"Tid var : {element.Datestamp_TEXT}");
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                System.Diagnostics.Debug.WriteLine($"Exception in my FactoryTable_GetNrOfRows: " + e);
-            }
-            return _factorySamples;
-        }
     }
 }

@@ -41,9 +41,6 @@ namespace Models
 
 
 
-
-
-
         public IOSampleModel2()
         {
             ToTable_TEXT = "SPARE";

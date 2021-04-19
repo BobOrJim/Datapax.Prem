@@ -21,13 +21,12 @@ namespace ApplicationCore.IO
         public void Run(string TimeBeforeDeviationTextBox, string TimeAfterDeviationTextBox)
         {
             Int64 _unixTimeMilliseconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds();
-            List<IOSampleModel> _samples = new List<IOSampleModel>();
+            //List<IOSampleModel> _samples = new List<IOSampleModel>();
             Int64 _latestDeviationTime_unixTime = getUnixTimeOfLatestDeviation();
             //if (_unixTimeMilliseconds < (_latestDeviationTime_unixTime + 5000))
             //{
-                lookForDataToMoveToKeepTable(_latestDeviationTime_unixTime, TimeBeforeDeviationTextBox, TimeAfterDeviationTextBox);
+            lookForDataToMoveToKeepTable(_latestDeviationTime_unixTime, TimeBeforeDeviationTextBox, TimeAfterDeviationTextBox);
             //}
-            
         }
 
         public void lookForDataToMoveToKeepTable(Int64 _latestDeviationTime_unixTime, string TimeBeforeDeviationTextBox, string TimeAfterDeviationTextBox)

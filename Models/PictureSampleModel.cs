@@ -13,7 +13,7 @@ namespace Models
         public string Datestamp_TEXT { get; } = "";
         public string DeviationID_TEXT { get; set; } = "";
         //Ovan är gemensam med IOSampleModel
-        //Nedan ger flexibilitet map linux/docker/asure/browser och filer kommer behöva ändra sökvägar fler gånger. Dessutom ger det viss spårbarhet.
+        //Nedan ger flexibilitet map linux/docker/azure/browser och filer kommer behöva ändra sökvägar fler gånger. Dessutom ger det viss spårbarhet.
         public string PictureFileNamePrefix_TEXT { get; set; } = ""; //Detta ger filnamn: pictureFileNamePrefix_TEXT + UnixTime + FileEnding_TEXT
         public string FilePathCurrent_TEXT { get; set; } = "";
         public string FileNameCurrent_TEXT { get; set; } = "";
@@ -39,7 +39,7 @@ namespace Models
             ToTable_TEXT = "SPARE";
 
             //Timestamp_unix_BIGINT
-            //Typ info: BIGINT i ssms motsvarar en Int64 i C#
+            //BIGINT i SSMS motsvarar en Int64 i C#
             var UnixTimeMilliseconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds(); // System.Int64 // 1607963957552
             Timestamp_unix_BIGINT = UnixTimeMilliseconds;
 
