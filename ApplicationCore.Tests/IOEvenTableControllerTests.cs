@@ -1,87 +1,91 @@
-//using Autofac.Extras.Moq;
-//using System;
-//using Xunit;
-//using Interfaces;
-//using Models;
-//using System.Collections.Generic;
-//using Moq;
+using Autofac.Extras.Moq;
+using System;
+using Xunit;
+using Interfaces;
+using Models;
+using System.Collections.Generic;
+using Moq;
+using Infrastructure;
+using ApplicationCore.IO;
+using GlobalStringsReadOnly;
 
-//namespace IOController.Tests
-//{
-//    public class IOEvenTableControllerTests
-//    {
+namespace IOController.Tests
+{
+    public class IOEvenTableControllerTests
+    {
+        //MethodName_StateOrActionInTest_ExpectedBehavior
+        [Fact]
+        public void FlushOddTable_CallFlushOddTable_FlushOddTableIsCalled()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                //Detta fake interface, där en metod ersätts.
+                mock.Mock<IDataAccess>().Setup(x => x.GeneralTable_flush(GlobalReadOnlyStrings.IOOddTable));
 
-//        [Fact]
-//        public void FlushOddTable_FlushOddTable_FlushOddTableIsCalled()
-//        {
-//            using (var mock = AutoMock.GetLoose())
-//            {
-//                //Detta interface blir en fake, där en metod ersätts.
-//                mock.Mock<IDataAccessGeneralTablesNEW>()
-//                    .Setup(x => x.GeneralTable_flush(TableNames.IOOddTable.ToString()));
+                //Skapar instans, där fake interface används
+                IOEvenTableController ctrl = mock.Create<IOEvenTableController>();
 
-//                //Skapar instans, där fake interface ovan används
-//                var ctrl = mock.Create<IOEvenTableController>();
+                ctrl.FlushOddTable(); //Kör metod FlushOddTable
 
-//                ctrl.FlushOddTable(); //Kör metod FlushOddTable
+                //Kontrollerar att metod FlushOddTable har anropats exakt en gång.
+                mock.Mock<IDataAccess>() .Verify(x => x.GeneralTable_flush(GlobalReadOnlyStrings.IOOddTable), Times.Exactly(1));
+            }
+        }
 
-//                //Kontrollerar att metod FlushOddTable, har anropat metod med inprameter: "GeneralTable_flush(TableNames.IOOddTable.ToString())"
-//                mock.Mock<IDataAccessGeneralTablesNEW>()
-//                    .Verify(x => x.GeneralTable_flush(TableNames.IOOddTable.ToString()), Times.Exactly(1));
-//            }
-//        }
+        //MethodName_StateOrActionInTest_ExpectedBehavior
+        [Fact]
+        public void cutPostsInFactoryTable_cutPostsInFactoryTable_ListIsReturnedWithouthModifications()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                //ARRANGE
+                //"Tilldelar" GeneralTable_cutAllPostsInTable metoden Moq data.
+                mock.Mock<IDataAccess>()
+                    .Setup(x => x.GeneralTable_cutAllPostsInTable(GlobalReadOnlyStrings.FactoryTable))
+                    .Returns(GetSamplePosts());
 
-//        [Fact]
-//        public void cutPostsInFactoryTable_cutPostsInFactoryTable_ListIsReturnedWithouthModifications()
-//        {
-//            using (var mock = AutoMock.GetLoose())
-//            {
-//                //Setup av fake/mock metod till interface den finns i, vad den heter, och vilken signatur som skall ge vilken return
-//                mock.Mock<IDataAccessGeneralTablesNEW>()
-//                    .Setup(x => x.GeneralTable_cutAllPostsInTable(TableNames.FactoryTable.ToString())) //TableNames.FactoryTable.ToString()
-//                    .Returns(GetSamplePosts());
+                //Skapar ett Mock objekt, som nu får Mock data "via" sin GeneralTable_cutAllPostsInTable metod från ovan.
+                IOEvenTableController ctrl = mock.Create<IOEvenTableController>();
 
-//                //här skapar vi en testknass, som använder fake grejen ovan, istället för den riktiga.
-//                var ctrl = mock.Create<IOEvenTableController>();
-                
-//                var actual = ctrl.cutPostsInFactoryTable(); //Notera att denna metod inte är samma som ovan. Dvs jag jobbar med ett fult
-//                //objekt men skillnaden att när exakt "GeneralTable_cutAllPostsInTable(TableNames.FactoryTable.ToString()" anropas så ersätts denna
-//                //med min fake ovan. DVS, OM JAG I MIN RITKIGA KOD GÅR OCH OCH KLADDAR PÅ cutPostsInFactoryTable METODEN SÅ DEN INTE GÖR
-//                //KORREKT ARNOP, eller inget anrop alls SÅ KOMMER DETTA FEL FÅNGAS. (HAR TESTAT)
-//                //KONKRET KONTROLLERAR JAG DÅ ATT ANROP GJÖRS, OCH ATT DET GJÖRS MED KORREKT STRÄNG.
-//                var expected = GetSamplePosts();
 
-//                Assert.True(actual != null); //1: Kontrolelrar i produktionskoden att cutPostsInFactoryTable anropar GeneralTable_cutAllPostsInTable
-//                //med korrekt inparams.
-//                Assert.Equal(expected.Count, actual.Count); //2: Kontrollerar att cutPostsInFactoryTable returnerar det som 
-//                //GeneralTable_cutAllPostsInTable returnerar. Dvs kontroll retur statement i cutPostsInFactoryTable är korrekt.
-//                for (int i = 0; i < expected.Count; i++)
-//                {
-//                    Assert.Equal(expected[i].DeviationID_TEXT, actual[i].DeviationID_TEXT); //3: Kan kontrollera att ingen funktion ändrat på urklippt
-//                    //data innan den returneras.
-//                }
-//            }
-//        }
-        
+                //ACT
+                List<IOSampleModel2> actual = ctrl.cutPostsInFactoryTable();
+                List<IOSampleModel2> expected = GetSamplePosts();
 
-//        private List<IOSampleModel> GetSamplePosts()
-//        {
-//            List<IOSampleModel> output = new List<IOSampleModel>
-//            {
-//                new IOSampleModel
-//                {
-//                    DeviationID_TEXT = "Test1"
-//                },
-//                new IOSampleModel
-//                {
-//                    DeviationID_TEXT = "Test2"
-//                },
-//                new IOSampleModel
-//                {
-//                    DeviationID_TEXT = "Test3"
-//                }
-//            };
-//            return output;
-//        }
-//    }
-//}
+
+
+                //ASSERT
+                //1: Kontrolelrar att cutPostsInFactoryTable anropar GeneralTable_cutAllPostsInTable med korrekt inparams.
+                Assert.True(actual != null);
+                //2: Kontrol av retur statement. I.E cutPostsInFactoryTable returnerar samma antal element som GeneralTable_cutAllPostsInTable.
+                Assert.Equal(expected.Count, actual.Count);
+                //3: Kan kontrollerar att ingen funktion ändrat på anropad/urklippt data innan den returneras.
+                for (int i = 0; i < expected.Count; i++)
+                {
+                    Assert.Equal(expected[i].DeviationID_TEXT, actual[i].DeviationID_TEXT); 
+                }
+            }
+        }
+
+
+        private List<IOSampleModel2> GetSamplePosts()
+        {
+            List<IOSampleModel2> output = new List<IOSampleModel2>
+            {
+                new IOSampleModel2
+                {
+                    DeviationID_TEXT = "Test1"
+                },
+                new IOSampleModel2
+                {
+                    DeviationID_TEXT = "Test2"
+                },
+                new IOSampleModel2
+                {
+                    DeviationID_TEXT = "Test3"
+                }
+            };
+            return output;
+        }
+    }
+}

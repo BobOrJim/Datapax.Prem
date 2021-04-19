@@ -16,16 +16,6 @@ namespace Infrastructure
     public class DataAccess : IDataAccess
     {
 
-        //private static string sqlPictureColumns { get; } = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, " +
-        //    "@PictureFileNamePrefix_TEXT, " +
-        //    "@FilePathCurrent_TEXT, @FileNameCurrent_TEXT, @FileEndingCurrent_TEXT, " +
-        //    "@FilePathWork_TEXT, @FileNameWork_TEXT, @FileEndingWork_TEXT, " +
-        //    "@FilePathKeep_TEXT, @FileNameKeep_TEXT, @FileEndingKeep_TEXT, " +
-        //    "@FilePathSpare1_TEXT, @FileNameSpare1_TEXT, @FileEndingSpare1_TEXT, " +
-        //    "@FilePathSpare2_TEXT, @FileNameSpare2_TEXT, @FileEndingSpare2_TEXT, " +
-        //    "@IsLabeledForGarbageCollector_BIT, @SpareBit_BIT";
-
-
 
         public void GeneralTable_createIOTemplateTable(string tableName)
         {
@@ -35,14 +25,18 @@ namespace Infrastructure
                 {
                     string _sqlSp = GlobalReadOnlyStrings.IOTable_createIOTemplateTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
-                    connection.Query(_sqlSp, _sqlSpParams);
+                    connection.Execute(_sqlSp, _sqlSpParams);
                 }
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_create: " + e);
+                Debug.WriteLine("Dear developer and fellow collegue, it seams to be an exception in the dataAccess interface. Im sorry, this is not your fault!" +
+                                "The error is solely caused by me(Jimmy). Furthermore im also terribly sorry that i cant give you any valuable information about how to solve it. " +
+                                "However, if you stand up and scream JIMMY EXCETPTION as loud as you can , Ill come running with two cups of coffee. ");
+                Debug.WriteLine($"Exception in my GeneralTable_create: " + e);
             }
         }
+
         public void GeneralTable_delete(string tableName)
         {
             try
@@ -51,7 +45,7 @@ namespace Infrastructure
                 {
                     string _sqlSp = GlobalReadOnlyStrings.IOTable_deleteTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
-                    connection.Query(_sqlSp, _sqlSpParams);
+                    connection.Execute(_sqlSp, _sqlSpParams);
                 }
             }
             catch (Exception e)
@@ -67,7 +61,7 @@ namespace Infrastructure
                 {
                     string _sqlSp = GlobalReadOnlyStrings.IOTable_deleteAllPostsInTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
-                    connection.Query(_sqlSp, _sqlSpParams);
+                    connection.Execute(_sqlSp, _sqlSpParams);
                 }
             }
             catch (Exception e)
@@ -201,7 +195,7 @@ namespace Infrastructure
                     string sql = "dbo.GeneralTable_inTableRemovePost @TABLE, @POST";
 
                     var sqlParams = new { TABLE = tableName, POST = samples.Timestamp_unix_BIGINT };
-                    connection.Query(sql, sqlParams);
+                    connection.Execute(sql, sqlParams);
 
                     //                    var results = connection.Query(sql, values).ToList();
                 }
@@ -272,7 +266,7 @@ namespace Infrastructure
                     {
                         string sql2 = "dbo.GeneralTable_inTableRemovePost @TABLE, @POST";
                         var sqlParams = new { TABLE = cutTable, POST = item.Timestamp_unix_BIGINT };
-                        connection.Query(sql2, sqlParams);
+                        connection.Execute(sql2, sqlParams);
                     }
                     //2. Ta bort dem i factory databasen
                     //3. Ändra factory till Odd och Even.
@@ -330,7 +324,7 @@ namespace Infrastructure
                 {
                     string _sqlSp = GlobalReadOnlyStrings.PictureTable_createPictureTemplateTable + " @TABLE";
                     var _sqlSpParams = new { TABLE = tableName };
-                    connection.Query(_sqlSp, _sqlSpParams);
+                    connection.Execute(_sqlSp, _sqlSpParams);
                 }
             }
             catch (Exception e)

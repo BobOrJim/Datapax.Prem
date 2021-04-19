@@ -11,12 +11,12 @@ namespace ApplicationCore.Cam
 {
     public class Cam1OddTableController
     {
-        public IDataAccess dataAccessGeneralTables;
+        public IDataAccess iDataAccess;
         private List<PictureSampleModel> pictureSamples;
 
-        public Cam1OddTableController(IDataAccess _iDataAccessGeneralTables)
+        public Cam1OddTableController(IDataAccess _iDataAccess)
         {
-            dataAccessGeneralTables = _iDataAccessGeneralTables;
+            iDataAccess = _iDataAccess;
         }
 
         public void Run()
@@ -26,9 +26,9 @@ namespace ApplicationCore.Cam
             int unixTimeSecondsMod60 = unixTimeSeconds % 60;
             if (unixTimeMinutes % 2 == 1 && unixTimeSecondsMod60 == 50) //Vid sekund 50, skall en db spolas.
             {
-                pictureSamples = dataAccessGeneralTables.PictureTable_cutPostsBetweenInTable(GlobalReadOnlyStrings.Cam1EvenTable, 0, Int64.MaxValue);
+                pictureSamples = iDataAccess.PictureTable_cutPostsBetweenInTable(GlobalReadOnlyStrings.Cam1EvenTable, 0, Int64.MaxValue);
                 //System.Diagnostics.Debug.WriteLine($"Antal objekt i Even är: " + pictureSamples.Count());
-                dataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1ThrowTable, pictureSamples);
+                iDataAccess.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1ThrowTable, pictureSamples);
             }
         }
     }

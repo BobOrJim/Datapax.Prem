@@ -28,7 +28,7 @@ namespace ApplicationCore.Cam
             pictureController = new PictureController(_iDataAccessGeneralTables);
             var videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             videoSource = new VideoCaptureDevice(videoDevices[videoDevicesID].MonikerString);
-            videoSource.NewFrame += new NewFrameEventHandler(NewFrameEventMethod); //OBS: Detta event triggar denna funk, här HW fångat en ny frame.
+            videoSource.NewFrame += new NewFrameEventHandler(NewFrameEventMethod); //Detta event triggar denna funk, när HW fångat en ny frame.
         }
 
         public void RunCamera(bool _startRun)

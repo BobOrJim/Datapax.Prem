@@ -12,7 +12,7 @@ using GlobalStringsReadOnly;
 
 namespace ApplicationCore.Cam
 {
-    //asfasdf
+
     public class PictureController
     {
         private int unixTimeSeconds;
