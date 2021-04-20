@@ -81,9 +81,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cam\Cam2EvenTableController.cs" />
     <Compile Include="Cam\Cam1EvenTableController.cs" />
+    <Compile Include="Cam\Cam2GarbageCollector.cs" />
     <Compile Include="Cam\Cam1GarbageCollector.cs" />
+    <Compile Include="Cam\Cam2KeepTableController.cs" />
     <Compile Include="Cam\Cam1KeepTableController.cs" />
+    <Compile Include="Cam\Cam2OddTableController.cs" />
     <Compile Include="Cam\Cam1OddTableController.cs" />
     <Compile Include="Cam\CameraController.cs" />
     <Compile Include="Cam\PictureController.cs" />

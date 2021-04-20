@@ -1,18 +1,21 @@
 
 
 
-3: Gå över och snygga till
+2: dashboard.PicturesInWorkFolder.Text skall finnas för båda kameror, och samma för keep folder.
+
+3.5 SaveToDB. lite bugare map att den alltid sparar till cam1Tabell.
+
+3: Samla in data
 
 
-4: Implementera DB/SP mm
-
-
-5: Samla in data
+2: Gå över och snygga till
 
 
 
 
-5.75 skissa på mina slides.
+
+
+5: skissa på mina slides.
 
 
 
@@ -25,9 +28,6 @@ Till Front
 * KANSKE SNILLEBLIXT, SUDDA INTE. ALLA TIME SPIN BOXES KAN TRÄFFA SAMMA CALLBACK FUNKTION
 * Step line chart. Skriv in detta namn i någon kommentar i Front.
 * Kanske lägga till färgglidande bakgrund, så som jag gjorde på IQR.
-
-
-
 
 
 

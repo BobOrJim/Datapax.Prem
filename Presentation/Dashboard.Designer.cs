@@ -41,7 +41,7 @@ namespace Presentation
             this.UIClockString = new System.Windows.Forms.Label();
             this.UIClockUnix = new System.Windows.Forms.Label();
             this.dummy_XX = new System.Windows.Forms.Label();
-            this.PicturesInKeepFolder = new System.Windows.Forms.Label();
+            this.Cam1PicturesInKeepFolder = new System.Windows.Forms.Label();
             this.IOOddTable_create = new System.Windows.Forms.Button();
             this.IOOddTable_delete = new System.Windows.Forms.Button();
             this.IOOddTable_flush = new System.Windows.Forms.Button();
@@ -101,8 +101,13 @@ namespace Presentation
             this.dummy_09 = new System.Windows.Forms.Label();
             this.TestAreaButton = new System.Windows.Forms.Button();
             this.StartCam1 = new System.Windows.Forms.Button();
-            this.PicturesInWorkFolder = new System.Windows.Forms.Label();
+            this.Cam1PicturesInWorkFolder = new System.Windows.Forms.Label();
             this.dummy_11 = new System.Windows.Forms.Label();
+            this.dummy_19 = new System.Windows.Forms.Label();
+            this.Cam2PicturesInWorkFolder = new System.Windows.Forms.Label();
+            this.Cam2PicturesInKeepFolder = new System.Windows.Forms.Label();
+            this.dummy_20 = new System.Windows.Forms.Label();
+            this.StartCam2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FactoryTable_create
@@ -159,7 +164,7 @@ namespace Presentation
             this.simulatorTaskLoops.AutoSize = true;
             this.simulatorTaskLoops.Location = new System.Drawing.Point(77, 55);
             this.simulatorTaskLoops.Name = "simulatorTaskLoops";
-            this.simulatorTaskLoops.Size = new System.Drawing.Size(135, 17);
+            this.simulatorTaskLoops.Size = new System.Drawing.Size(101, 13);
             this.simulatorTaskLoops.TabIndex = 7;
             this.simulatorTaskLoops.Text = "simulatorTaskLoops";
             // 
@@ -168,7 +173,7 @@ namespace Presentation
             this.dummy_01.AutoSize = true;
             this.dummy_01.Location = new System.Drawing.Point(32, 55);
             this.dummy_01.Name = "dummy_01";
-            this.dummy_01.Size = new System.Drawing.Size(51, 17);
+            this.dummy_01.Size = new System.Drawing.Size(39, 13);
             this.dummy_01.TabIndex = 8;
             this.dummy_01.Text = "Loops:";
             // 
@@ -187,7 +192,7 @@ namespace Presentation
             this.dummy_02.AutoSize = true;
             this.dummy_02.Location = new System.Drawing.Point(59, 404);
             this.dummy_02.Name = "dummy_02";
-            this.dummy_02.Size = new System.Drawing.Size(133, 17);
+            this.dummy_02.Size = new System.Drawing.Size(102, 13);
             this.dummy_02.TabIndex = 10;
             this.dummy_02.Text = "FactoryTableRows=";
             // 
@@ -196,7 +201,7 @@ namespace Presentation
             this.FactoryTableRows.AutoSize = true;
             this.FactoryTableRows.Location = new System.Drawing.Point(59, 430);
             this.FactoryTableRows.Name = "FactoryTableRows";
-            this.FactoryTableRows.Size = new System.Drawing.Size(125, 17);
+            this.FactoryTableRows.Size = new System.Drawing.Size(96, 13);
             this.FactoryTableRows.TabIndex = 11;
             this.FactoryTableRows.Text = "FactoryTableRows";
             // 
@@ -205,7 +210,7 @@ namespace Presentation
             this.UIClockString.AutoSize = true;
             this.UIClockString.Location = new System.Drawing.Point(795, 13);
             this.UIClockString.Name = "UIClockString";
-            this.UIClockString.Size = new System.Drawing.Size(92, 17);
+            this.UIClockString.Size = new System.Drawing.Size(72, 13);
             this.UIClockString.TabIndex = 15;
             this.UIClockString.Text = "UIClockString";
             // 
@@ -214,27 +219,27 @@ namespace Presentation
             this.UIClockUnix.AutoSize = true;
             this.UIClockUnix.Location = new System.Drawing.Point(795, 39);
             this.UIClockUnix.Name = "UIClockUnix";
-            this.UIClockUnix.Size = new System.Drawing.Size(82, 17);
+            this.UIClockUnix.Size = new System.Drawing.Size(66, 13);
             this.UIClockUnix.TabIndex = 16;
             this.UIClockUnix.Text = "UIClockUnix";
             // 
             // dummy_XX
             // 
             this.dummy_XX.AutoSize = true;
-            this.dummy_XX.Location = new System.Drawing.Point(1128, 92);
+            this.dummy_XX.Location = new System.Drawing.Point(1116, 56);
             this.dummy_XX.Name = "dummy_XX";
-            this.dummy_XX.Size = new System.Drawing.Size(128, 17);
+            this.dummy_XX.Size = new System.Drawing.Size(97, 13);
             this.dummy_XX.TabIndex = 18;
             this.dummy_XX.Text = "Cam1KeepPictures";
             // 
-            // PicturesInKeepFolder
+            // Cam1PicturesInKeepFolder
             // 
-            this.PicturesInKeepFolder.AutoSize = true;
-            this.PicturesInKeepFolder.Location = new System.Drawing.Point(1128, 104);
-            this.PicturesInKeepFolder.Name = "PicturesInKeepFolder";
-            this.PicturesInKeepFolder.Size = new System.Drawing.Size(143, 17);
-            this.PicturesInKeepFolder.TabIndex = 19;
-            this.PicturesInKeepFolder.Text = "PicturesInKeepFolder";
+            this.Cam1PicturesInKeepFolder.AutoSize = true;
+            this.Cam1PicturesInKeepFolder.Location = new System.Drawing.Point(1116, 68);
+            this.Cam1PicturesInKeepFolder.Name = "Cam1PicturesInKeepFolder";
+            this.Cam1PicturesInKeepFolder.Size = new System.Drawing.Size(135, 13);
+            this.Cam1PicturesInKeepFolder.TabIndex = 19;
+            this.Cam1PicturesInKeepFolder.Text = "Cam1PicturesInKeepFolder";
             // 
             // IOOddTable_create
             // 
@@ -301,7 +306,7 @@ namespace Presentation
             this.IOOddTableRows.AutoSize = true;
             this.IOOddTableRows.Location = new System.Drawing.Point(210, 430);
             this.IOOddTableRows.Name = "IOOddTableRows";
-            this.IOOddTableRows.Size = new System.Drawing.Size(119, 17);
+            this.IOOddTableRows.Size = new System.Drawing.Size(92, 13);
             this.IOOddTableRows.TabIndex = 26;
             this.IOOddTableRows.Text = "IOOddTableRows";
             // 
@@ -310,7 +315,7 @@ namespace Presentation
             this.IOEvenTableRows.AutoSize = true;
             this.IOEvenTableRows.Location = new System.Drawing.Point(364, 430);
             this.IOEvenTableRows.Name = "IOEvenTableRows";
-            this.IOEvenTableRows.Size = new System.Drawing.Size(124, 17);
+            this.IOEvenTableRows.Size = new System.Drawing.Size(97, 13);
             this.IOEvenTableRows.TabIndex = 27;
             this.IOEvenTableRows.Text = "IOEvenTableRows";
             // 
@@ -502,6 +507,7 @@ namespace Presentation
             this.Cam2OddTable_FlushRows.TabIndex = 48;
             this.Cam2OddTable_FlushRows.Text = "Cam2OddTable_FlushRows";
             this.Cam2OddTable_FlushRows.UseVisualStyleBackColor = true;
+            this.Cam2OddTable_FlushRows.Click += new System.EventHandler(this.Cam2OddTable_FlushRows_Click);
             // 
             // Cam2OddTable_Delete
             // 
@@ -511,6 +517,7 @@ namespace Presentation
             this.Cam2OddTable_Delete.TabIndex = 47;
             this.Cam2OddTable_Delete.Text = "Cam2OddTable_Delete";
             this.Cam2OddTable_Delete.UseVisualStyleBackColor = true;
+            this.Cam2OddTable_Delete.Click += new System.EventHandler(this.Cam2OddTable_Delete_Click);
             // 
             // Cam2OddTable_Create
             // 
@@ -520,6 +527,7 @@ namespace Presentation
             this.Cam2OddTable_Create.TabIndex = 46;
             this.Cam2OddTable_Create.Text = "Cam2OddTable_Create";
             this.Cam2OddTable_Create.UseVisualStyleBackColor = true;
+            this.Cam2OddTable_Create.Click += new System.EventHandler(this.Cam2OddTable_Create_Click);
             // 
             // Cam2EvenTable_FlushRows
             // 
@@ -529,6 +537,7 @@ namespace Presentation
             this.Cam2EvenTable_FlushRows.TabIndex = 51;
             this.Cam2EvenTable_FlushRows.Text = "Cam2EvenTable_FlushRows";
             this.Cam2EvenTable_FlushRows.UseVisualStyleBackColor = true;
+            this.Cam2EvenTable_FlushRows.Click += new System.EventHandler(this.Cam2EvenTable_FlushRows_Click);
             // 
             // Cam2EvenTable_Delete
             // 
@@ -538,6 +547,7 @@ namespace Presentation
             this.Cam2EvenTable_Delete.TabIndex = 50;
             this.Cam2EvenTable_Delete.Text = "Cam2EvenTable_Delete";
             this.Cam2EvenTable_Delete.UseVisualStyleBackColor = true;
+            this.Cam2EvenTable_Delete.Click += new System.EventHandler(this.Cam2EvenTable_Delete_Click);
             // 
             // Cam2EvenTable_Create
             // 
@@ -547,67 +557,74 @@ namespace Presentation
             this.Cam2EvenTable_Create.TabIndex = 49;
             this.Cam2EvenTable_Create.Text = "Cam2EvenTable_Create";
             this.Cam2EvenTable_Create.UseVisualStyleBackColor = true;
+            this.Cam2EvenTable_Create.Click += new System.EventHandler(this.Cam2EvenTable_Create_Click);
             // 
             // Cam2KeepTable_FlushRows
             // 
-            this.Cam2KeepTable_FlushRows.Location = new System.Drawing.Point(1677, 509);
+            this.Cam2KeepTable_FlushRows.Location = new System.Drawing.Point(38, 648);
             this.Cam2KeepTable_FlushRows.Name = "Cam2KeepTable_FlushRows";
             this.Cam2KeepTable_FlushRows.Size = new System.Drawing.Size(143, 20);
             this.Cam2KeepTable_FlushRows.TabIndex = 54;
             this.Cam2KeepTable_FlushRows.Text = "Cam2KeepTable_FlushRows";
             this.Cam2KeepTable_FlushRows.UseVisualStyleBackColor = true;
+            this.Cam2KeepTable_FlushRows.Click += new System.EventHandler(this.Cam2KeepTable_FlushRows_Click);
             // 
             // Cam2KeepTable_Delete
             // 
-            this.Cam2KeepTable_Delete.Location = new System.Drawing.Point(1677, 483);
+            this.Cam2KeepTable_Delete.Location = new System.Drawing.Point(38, 622);
             this.Cam2KeepTable_Delete.Name = "Cam2KeepTable_Delete";
             this.Cam2KeepTable_Delete.Size = new System.Drawing.Size(143, 20);
             this.Cam2KeepTable_Delete.TabIndex = 53;
             this.Cam2KeepTable_Delete.Text = "Cam2KeepTable_Delete";
             this.Cam2KeepTable_Delete.UseVisualStyleBackColor = true;
+            this.Cam2KeepTable_Delete.Click += new System.EventHandler(this.Cam2KeepTable_Delete_Click);
             // 
             // Cam2KeepTable_Create
             // 
-            this.Cam2KeepTable_Create.Location = new System.Drawing.Point(1677, 457);
+            this.Cam2KeepTable_Create.Location = new System.Drawing.Point(38, 596);
             this.Cam2KeepTable_Create.Name = "Cam2KeepTable_Create";
             this.Cam2KeepTable_Create.Size = new System.Drawing.Size(143, 20);
             this.Cam2KeepTable_Create.TabIndex = 52;
             this.Cam2KeepTable_Create.Text = "Cam2KeepTable_Create";
             this.Cam2KeepTable_Create.UseVisualStyleBackColor = true;
+            this.Cam2KeepTable_Create.Click += new System.EventHandler(this.Cam2KeepTable_Create_Click);
             // 
             // Cam2ThrowTable_FlushRows
             // 
-            this.Cam2ThrowTable_FlushRows.Location = new System.Drawing.Point(38, 648);
+            this.Cam2ThrowTable_FlushRows.Location = new System.Drawing.Point(187, 648);
             this.Cam2ThrowTable_FlushRows.Name = "Cam2ThrowTable_FlushRows";
             this.Cam2ThrowTable_FlushRows.Size = new System.Drawing.Size(143, 20);
             this.Cam2ThrowTable_FlushRows.TabIndex = 57;
             this.Cam2ThrowTable_FlushRows.Text = "Cam2ThrowTable_FlushRows";
             this.Cam2ThrowTable_FlushRows.UseVisualStyleBackColor = true;
+            this.Cam2ThrowTable_FlushRows.Click += new System.EventHandler(this.Cam2ThrowTable_FlushRows_Click);
             // 
             // Cam2ThrowTable_Delete
             // 
-            this.Cam2ThrowTable_Delete.Location = new System.Drawing.Point(38, 622);
+            this.Cam2ThrowTable_Delete.Location = new System.Drawing.Point(187, 622);
             this.Cam2ThrowTable_Delete.Name = "Cam2ThrowTable_Delete";
             this.Cam2ThrowTable_Delete.Size = new System.Drawing.Size(143, 20);
             this.Cam2ThrowTable_Delete.TabIndex = 56;
             this.Cam2ThrowTable_Delete.Text = "Cam2ThrowTable_Delete";
             this.Cam2ThrowTable_Delete.UseVisualStyleBackColor = true;
+            this.Cam2ThrowTable_Delete.Click += new System.EventHandler(this.Cam2ThrowTable_Delete_Click);
             // 
             // Cam2ThrowTable_Create
             // 
-            this.Cam2ThrowTable_Create.Location = new System.Drawing.Point(38, 596);
+            this.Cam2ThrowTable_Create.Location = new System.Drawing.Point(187, 596);
             this.Cam2ThrowTable_Create.Name = "Cam2ThrowTable_Create";
             this.Cam2ThrowTable_Create.Size = new System.Drawing.Size(143, 20);
             this.Cam2ThrowTable_Create.TabIndex = 55;
             this.Cam2ThrowTable_Create.Text = "Cam2ThrowTable_Create";
             this.Cam2ThrowTable_Create.UseVisualStyleBackColor = true;
+            this.Cam2ThrowTable_Create.Click += new System.EventHandler(this.Cam2ThrowTable_Create_Click);
             // 
             // DeviationTableRows
             // 
             this.DeviationTableRows.AutoSize = true;
             this.DeviationTableRows.Location = new System.Drawing.Point(661, 430);
             this.DeviationTableRows.Name = "DeviationTableRows";
-            this.DeviationTableRows.Size = new System.Drawing.Size(137, 17);
+            this.DeviationTableRows.Size = new System.Drawing.Size(106, 13);
             this.DeviationTableRows.TabIndex = 58;
             this.DeviationTableRows.Text = "DeviationTableRows";
             // 
@@ -616,7 +633,7 @@ namespace Presentation
             this.IOKeepTableRows.AutoSize = true;
             this.IOKeepTableRows.Location = new System.Drawing.Point(505, 430);
             this.IOKeepTableRows.Name = "IOKeepTableRows";
-            this.IOKeepTableRows.Size = new System.Drawing.Size(125, 17);
+            this.IOKeepTableRows.Size = new System.Drawing.Size(97, 13);
             this.IOKeepTableRows.TabIndex = 59;
             this.IOKeepTableRows.Text = "IOKeepTableRows";
             // 
@@ -625,7 +642,7 @@ namespace Presentation
             this.Cam1OddTableRows.AutoSize = true;
             this.Cam1OddTableRows.Location = new System.Drawing.Point(801, 430);
             this.Cam1OddTableRows.Name = "Cam1OddTableRows";
-            this.Cam1OddTableRows.Size = new System.Drawing.Size(141, 17);
+            this.Cam1OddTableRows.Size = new System.Drawing.Size(108, 13);
             this.Cam1OddTableRows.TabIndex = 60;
             this.Cam1OddTableRows.Text = "Cam1OddTableRows";
             // 
@@ -634,7 +651,7 @@ namespace Presentation
             this.Cam1EvenTableRows.AutoSize = true;
             this.Cam1EvenTableRows.Location = new System.Drawing.Point(947, 430);
             this.Cam1EvenTableRows.Name = "Cam1EvenTableRows";
-            this.Cam1EvenTableRows.Size = new System.Drawing.Size(146, 17);
+            this.Cam1EvenTableRows.Size = new System.Drawing.Size(113, 13);
             this.Cam1EvenTableRows.TabIndex = 61;
             this.Cam1EvenTableRows.Text = "Cam1EvenTableRows";
             // 
@@ -643,7 +660,7 @@ namespace Presentation
             this.Cam1KeepTableRows.AutoSize = true;
             this.Cam1KeepTableRows.Location = new System.Drawing.Point(1097, 430);
             this.Cam1KeepTableRows.Name = "Cam1KeepTableRows";
-            this.Cam1KeepTableRows.Size = new System.Drawing.Size(147, 17);
+            this.Cam1KeepTableRows.Size = new System.Drawing.Size(113, 13);
             this.Cam1KeepTableRows.TabIndex = 62;
             this.Cam1KeepTableRows.Text = "Cam1KeepTableRows";
             // 
@@ -652,7 +669,7 @@ namespace Presentation
             this.Cam1ThrowTableRows.AutoSize = true;
             this.Cam1ThrowTableRows.Location = new System.Drawing.Point(1242, 430);
             this.Cam1ThrowTableRows.Name = "Cam1ThrowTableRows";
-            this.Cam1ThrowTableRows.Size = new System.Drawing.Size(153, 17);
+            this.Cam1ThrowTableRows.Size = new System.Drawing.Size(118, 13);
             this.Cam1ThrowTableRows.TabIndex = 63;
             this.Cam1ThrowTableRows.Text = "Cam1ThrowTableRows";
             // 
@@ -661,7 +678,7 @@ namespace Presentation
             this.Cam2OddTableRows.AutoSize = true;
             this.Cam2OddTableRows.Location = new System.Drawing.Point(1400, 430);
             this.Cam2OddTableRows.Name = "Cam2OddTableRows";
-            this.Cam2OddTableRows.Size = new System.Drawing.Size(141, 17);
+            this.Cam2OddTableRows.Size = new System.Drawing.Size(108, 13);
             this.Cam2OddTableRows.TabIndex = 64;
             this.Cam2OddTableRows.Text = "Cam2OddTableRows";
             // 
@@ -670,25 +687,25 @@ namespace Presentation
             this.Cam2EvenTableRows.AutoSize = true;
             this.Cam2EvenTableRows.Location = new System.Drawing.Point(1545, 430);
             this.Cam2EvenTableRows.Name = "Cam2EvenTableRows";
-            this.Cam2EvenTableRows.Size = new System.Drawing.Size(146, 17);
+            this.Cam2EvenTableRows.Size = new System.Drawing.Size(113, 13);
             this.Cam2EvenTableRows.TabIndex = 65;
             this.Cam2EvenTableRows.Text = "Cam2EvenTableRows";
             // 
             // Cam2KeepTableRows
             // 
             this.Cam2KeepTableRows.AutoSize = true;
-            this.Cam2KeepTableRows.Location = new System.Drawing.Point(1695, 430);
+            this.Cam2KeepTableRows.Location = new System.Drawing.Point(56, 569);
             this.Cam2KeepTableRows.Name = "Cam2KeepTableRows";
-            this.Cam2KeepTableRows.Size = new System.Drawing.Size(147, 17);
+            this.Cam2KeepTableRows.Size = new System.Drawing.Size(113, 13);
             this.Cam2KeepTableRows.TabIndex = 66;
             this.Cam2KeepTableRows.Text = "Cam2KeepTableRows";
             // 
             // Cam2ThrowTableRows
             // 
             this.Cam2ThrowTableRows.AutoSize = true;
-            this.Cam2ThrowTableRows.Location = new System.Drawing.Point(49, 580);
+            this.Cam2ThrowTableRows.Location = new System.Drawing.Point(198, 580);
             this.Cam2ThrowTableRows.Name = "Cam2ThrowTableRows";
-            this.Cam2ThrowTableRows.Size = new System.Drawing.Size(153, 17);
+            this.Cam2ThrowTableRows.Size = new System.Drawing.Size(118, 13);
             this.Cam2ThrowTableRows.TabIndex = 67;
             this.Cam2ThrowTableRows.Text = "Cam2ThrowTableRows";
             // 
@@ -707,7 +724,7 @@ namespace Presentation
             this.dummy_05.AutoSize = true;
             this.dummy_05.Location = new System.Drawing.Point(35, 123);
             this.dummy_05.Name = "dummy_05";
-            this.dummy_05.Size = new System.Drawing.Size(97, 17);
+            this.dummy_05.Size = new System.Drawing.Size(75, 13);
             this.dummy_05.TabIndex = 69;
             this.dummy_05.Text = "Deviation text:";
             // 
@@ -715,14 +732,14 @@ namespace Presentation
             // 
             this.DeviationTextBox.Location = new System.Drawing.Point(38, 139);
             this.DeviationTextBox.Name = "DeviationTextBox";
-            this.DeviationTextBox.Size = new System.Drawing.Size(143, 22);
+            this.DeviationTextBox.Size = new System.Drawing.Size(143, 20);
             this.DeviationTextBox.TabIndex = 70;
             // 
             // TimeBeforeDeviationTextBox
             // 
             this.TimeBeforeDeviationTextBox.Location = new System.Drawing.Point(540, 138);
             this.TimeBeforeDeviationTextBox.Name = "TimeBeforeDeviationTextBox";
-            this.TimeBeforeDeviationTextBox.Size = new System.Drawing.Size(100, 22);
+            this.TimeBeforeDeviationTextBox.Size = new System.Drawing.Size(100, 20);
             this.TimeBeforeDeviationTextBox.TabIndex = 71;
             this.TimeBeforeDeviationTextBox.Text = "10";
             // 
@@ -730,7 +747,7 @@ namespace Presentation
             // 
             this.TimeAfterDeviationTextBox.Location = new System.Drawing.Point(540, 187);
             this.TimeAfterDeviationTextBox.Name = "TimeAfterDeviationTextBox";
-            this.TimeAfterDeviationTextBox.Size = new System.Drawing.Size(100, 22);
+            this.TimeAfterDeviationTextBox.Size = new System.Drawing.Size(100, 20);
             this.TimeAfterDeviationTextBox.TabIndex = 72;
             this.TimeAfterDeviationTextBox.Text = "10";
             // 
@@ -739,7 +756,7 @@ namespace Presentation
             this.dummy_06.AutoSize = true;
             this.dummy_06.Location = new System.Drawing.Point(537, 122);
             this.dummy_06.Name = "dummy_06";
-            this.dummy_06.Size = new System.Drawing.Size(133, 17);
+            this.dummy_06.Size = new System.Drawing.Size(99, 13);
             this.dummy_06.TabIndex = 73;
             this.dummy_06.Text = "Capture before time";
             // 
@@ -748,7 +765,7 @@ namespace Presentation
             this.dummy_07.AutoSize = true;
             this.dummy_07.Location = new System.Drawing.Point(537, 171);
             this.dummy_07.Name = "dummy_07";
-            this.dummy_07.Size = new System.Drawing.Size(121, 17);
+            this.dummy_07.Size = new System.Drawing.Size(90, 13);
             this.dummy_07.TabIndex = 74;
             this.dummy_07.Text = "Capture after time";
             // 
@@ -757,7 +774,7 @@ namespace Presentation
             this.dummy_08.AutoSize = true;
             this.dummy_08.Location = new System.Drawing.Point(646, 145);
             this.dummy_08.Name = "dummy_08";
-            this.dummy_08.Size = new System.Drawing.Size(32, 17);
+            this.dummy_08.Size = new System.Drawing.Size(26, 13);
             this.dummy_08.TabIndex = 75;
             this.dummy_08.Text = "Sec";
             // 
@@ -766,7 +783,7 @@ namespace Presentation
             this.dummy_09.AutoSize = true;
             this.dummy_09.Location = new System.Drawing.Point(646, 195);
             this.dummy_09.Name = "dummy_09";
-            this.dummy_09.Size = new System.Drawing.Size(32, 17);
+            this.dummy_09.Size = new System.Drawing.Size(26, 13);
             this.dummy_09.TabIndex = 76;
             this.dummy_09.Text = "Sec";
             // 
@@ -782,7 +799,7 @@ namespace Presentation
             // 
             // StartCam1
             // 
-            this.StartCam1.Location = new System.Drawing.Point(984, 55);
+            this.StartCam1.Location = new System.Drawing.Point(972, 19);
             this.StartCam1.Name = "StartCam1";
             this.StartCam1.Size = new System.Drawing.Size(113, 23);
             this.StartCam1.TabIndex = 81;
@@ -790,29 +807,80 @@ namespace Presentation
             this.StartCam1.UseVisualStyleBackColor = true;
             this.StartCam1.Click += new System.EventHandler(this.StartCam1_Click);
             // 
-            // PicturesInWorkFolder
+            // Cam1PicturesInWorkFolder
             // 
-            this.PicturesInWorkFolder.AutoSize = true;
-            this.PicturesInWorkFolder.Location = new System.Drawing.Point(977, 104);
-            this.PicturesInWorkFolder.Name = "PicturesInWorkFolder";
-            this.PicturesInWorkFolder.Size = new System.Drawing.Size(143, 17);
-            this.PicturesInWorkFolder.TabIndex = 82;
-            this.PicturesInWorkFolder.Text = "PicturesInWorkFolder";
+            this.Cam1PicturesInWorkFolder.AutoSize = true;
+            this.Cam1PicturesInWorkFolder.Location = new System.Drawing.Point(965, 68);
+            this.Cam1PicturesInWorkFolder.Name = "Cam1PicturesInWorkFolder";
+            this.Cam1PicturesInWorkFolder.Size = new System.Drawing.Size(136, 13);
+            this.Cam1PicturesInWorkFolder.TabIndex = 82;
+            this.Cam1PicturesInWorkFolder.Text = "Cam1PicturesInWorkFolder";
             // 
             // dummy_11
             // 
             this.dummy_11.AutoSize = true;
-            this.dummy_11.Location = new System.Drawing.Point(977, 91);
+            this.dummy_11.Location = new System.Drawing.Point(965, 55);
             this.dummy_11.Name = "dummy_11";
-            this.dummy_11.Size = new System.Drawing.Size(128, 17);
+            this.dummy_11.Size = new System.Drawing.Size(98, 13);
             this.dummy_11.TabIndex = 83;
             this.dummy_11.Text = "Cam1WorkPictures";
+            // 
+            // dummy_19
+            // 
+            this.dummy_19.AutoSize = true;
+            this.dummy_19.Location = new System.Drawing.Point(969, 158);
+            this.dummy_19.Name = "dummy_19";
+            this.dummy_19.Size = new System.Drawing.Size(98, 13);
+            this.dummy_19.TabIndex = 88;
+            this.dummy_19.Text = "Cam2WorkPictures";
+            // 
+            // Cam2PicturesInWorkFolder
+            // 
+            this.Cam2PicturesInWorkFolder.AutoSize = true;
+            this.Cam2PicturesInWorkFolder.Location = new System.Drawing.Point(969, 171);
+            this.Cam2PicturesInWorkFolder.Name = "Cam2PicturesInWorkFolder";
+            this.Cam2PicturesInWorkFolder.Size = new System.Drawing.Size(136, 13);
+            this.Cam2PicturesInWorkFolder.TabIndex = 87;
+            this.Cam2PicturesInWorkFolder.Text = "Cam2PicturesInWorkFolder";
+            // 
+            // Cam2PicturesInKeepFolder
+            // 
+            this.Cam2PicturesInKeepFolder.AutoSize = true;
+            this.Cam2PicturesInKeepFolder.Location = new System.Drawing.Point(1120, 171);
+            this.Cam2PicturesInKeepFolder.Name = "Cam2PicturesInKeepFolder";
+            this.Cam2PicturesInKeepFolder.Size = new System.Drawing.Size(135, 13);
+            this.Cam2PicturesInKeepFolder.TabIndex = 85;
+            this.Cam2PicturesInKeepFolder.Text = "Cam2PicturesInKeepFolder";
+            // 
+            // dummy_20
+            // 
+            this.dummy_20.AutoSize = true;
+            this.dummy_20.Location = new System.Drawing.Point(1120, 159);
+            this.dummy_20.Name = "dummy_20";
+            this.dummy_20.Size = new System.Drawing.Size(97, 13);
+            this.dummy_20.TabIndex = 84;
+            this.dummy_20.Text = "Cam2KeepPictures";
+            // 
+            // StartCam2
+            // 
+            this.StartCam2.Location = new System.Drawing.Point(972, 118);
+            this.StartCam2.Name = "StartCam2";
+            this.StartCam2.Size = new System.Drawing.Size(113, 23);
+            this.StartCam2.TabIndex = 89;
+            this.StartCam2.Text = "StartCam2";
+            this.StartCam2.UseVisualStyleBackColor = true;
+            this.StartCam2.Click += new System.EventHandler(this.StartCam2_Click);
             // 
             // Dashboard
             // 
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.StartCam2);
+            this.Controls.Add(this.dummy_19);
+            this.Controls.Add(this.Cam2PicturesInWorkFolder);
+            this.Controls.Add(this.Cam2PicturesInKeepFolder);
+            this.Controls.Add(this.dummy_20);
             this.Controls.Add(this.dummy_11);
-            this.Controls.Add(this.PicturesInWorkFolder);
+            this.Controls.Add(this.Cam1PicturesInWorkFolder);
             this.Controls.Add(this.StartCam1);
             this.Controls.Add(this.TestAreaButton);
             this.Controls.Add(this.dummy_09);
@@ -872,7 +940,7 @@ namespace Presentation
             this.Controls.Add(this.IOOddTable_flush);
             this.Controls.Add(this.IOOddTable_delete);
             this.Controls.Add(this.IOOddTable_create);
-            this.Controls.Add(this.PicturesInKeepFolder);
+            this.Controls.Add(this.Cam1PicturesInKeepFolder);
             this.Controls.Add(this.dummy_XX);
             this.Controls.Add(this.UIClockUnix);
             this.Controls.Add(this.UIClockString);
@@ -966,9 +1034,14 @@ namespace Presentation
         public System.Windows.Forms.TextBox TimeAfterDeviationTextBox;
         private System.Windows.Forms.Button TestAreaButton;
         private System.Windows.Forms.Button StartCam1;
-        public System.Windows.Forms.Label PicturesInWorkFolder;
+        public System.Windows.Forms.Label Cam1PicturesInWorkFolder;
         private System.Windows.Forms.Label dummy_11;
-        public System.Windows.Forms.Label PicturesInKeepFolder;
+        public System.Windows.Forms.Label Cam1PicturesInKeepFolder;
+        private System.Windows.Forms.Label dummy_19;
+        public System.Windows.Forms.Label Cam2PicturesInWorkFolder;
+        public System.Windows.Forms.Label Cam2PicturesInKeepFolder;
+        private System.Windows.Forms.Label dummy_20;
+        private System.Windows.Forms.Button StartCam2;
     }
 }
 

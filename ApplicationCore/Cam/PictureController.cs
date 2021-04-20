@@ -79,8 +79,7 @@ namespace ApplicationCore.Cam
             {
                 if (Directory.Exists(pictureSampleModel.FilePathCurrent_TEXT))
                 {
-                    bitmap.Save(pictureSampleModel.FilePathCurrent_TEXT + pictureSampleModel.FileNameCurrent_TEXT +
-                        pictureSampleModel.FileEndingCurrent_TEXT, ImageFormat.Jpeg);
+                    bitmap.Save(pictureSampleModel.FilePathCurrent_TEXT + pictureSampleModel.FileNameCurrent_TEXT + pictureSampleModel.FileEndingCurrent_TEXT, ImageFormat.Jpeg);
                 }
             }
             catch (Exception e) 

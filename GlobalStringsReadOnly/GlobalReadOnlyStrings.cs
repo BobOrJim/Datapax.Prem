@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 namespace GlobalStringsReadOnly
 {
 	//When this system is commisioned in a real factory. IOTablesTemplateColumnNames will contain perhaps 1000 different IO
-	//and thus we will need to write a CSV file with the customer.
-    //Then we will need to write a separate program (parser) that will generate our *.sql storedprocedures automaticly
+	//and thus we will need to write a CSV file for/with the customer in their system.
+    //Then we will need to write a separate program (parser) that will generate our *.sql storedprocedures automaticly and
+    //posibly this file as well.
 	static public class GlobalReadOnlyStrings
     {
-        public static readonly string pathCamera1WorkFolder = @"C:\Users\Jimmy\Desktop\Tests\V019\Presentation\Cam1WorkPictures\";
-        public static readonly string pathCamera1KeepFolder = @"C:\Users\Jimmy\Desktop\Tests\V019\Presentation\Cam1KeepPictures\";
+        public static readonly string pathCamera1WorkFolder = @"C:\Users\Jimmy\Desktop\Tests\V033\Presentation\Cam1WorkPictures\";
+        public static readonly string pathCamera1KeepFolder = @"C:\Users\Jimmy\Desktop\Tests\V033\Presentation\Cam1KeepPictures\";
+
+        public static readonly string pathCamera2WorkFolder = @"C:\Users\Jimmy\Desktop\Tests\V033\Presentation\Cam2WorkPictures\";
+        public static readonly string pathCamera2KeepFolder = @"C:\Users\Jimmy\Desktop\Tests\V033\Presentation\Cam2KeepPictures\";
+
 
         public static readonly string IOTablesTemplateColumnNames  = " @ToTable_TEXT, @Timestamp_unix_BIGINT, @Datestamp_TEXT, @DeviationID_TEXT, @Hub2Hub_KKS123_SystemVolt_Erratic, " +
 			"@Hub2Hub_KKS123_SystemVolt_Low, @Hub2Hub_KKS123_Retarder_LowCurrent, @Hub2Hub_KKS123_AuxPressure_Low, " +
