@@ -20,10 +20,21 @@ namespace ApplicationCore.Cam
         private int unixTimeSecondsMod60;
         private List<PictureSampleModel> pictureSamples;
         public IDataAccess dataAccessGeneralTables;
-
-        public PictureController(IDataAccess _iDataAccessGeneralTables)
+        private string CamEvenTable;
+        private string CamOddTable;
+        public PictureController(IDataAccess _iDataAccessGeneralTables, string _pictureFileNamePrefix)
         {
             dataAccessGeneralTables = _iDataAccessGeneralTables;
+            if (_pictureFileNamePrefix == "Camera1")
+            {
+                CamEvenTable = GlobalReadOnlyStrings.Cam1EvenTable;
+                CamOddTable = GlobalReadOnlyStrings.Cam1OddTable;
+            }
+            if (_pictureFileNamePrefix == "Camera2")
+            {
+                CamEvenTable = GlobalReadOnlyStrings.Cam2EvenTable;
+                CamOddTable = GlobalReadOnlyStrings.Cam2OddTable;
+            }
         }
 
         public void SaveBitmapToDBAndToDisk(Bitmap bitmap, string pictureFileNamePrefix, string pathFolderWork, string pathFolderKeep)
@@ -65,11 +76,11 @@ namespace ApplicationCore.Cam
 
             if (unixTimeMinutes % 2 == 0) 
             {
-                dataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1EvenTable, pictureSamples);
+                dataAccessGeneralTables.GeneralTable_insertPictureObject(CamEvenTable, pictureSamples);
             }
             else
             {
-                dataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1OddTable, pictureSamples);
+                dataAccessGeneralTables.GeneralTable_insertPictureObject(CamOddTable, pictureSamples);
             }
         }
 

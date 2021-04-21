@@ -36,7 +36,6 @@ namespace GlobalStringsReadOnly
         "@FilePathSpare2_TEXT, @FileNameSpare2_TEXT, @FileEndingSpare2_TEXT, " +
         "@IsLabeledForGarbageCollector_BIT, @SpareBit_BIT";
 
-
         //Dessa matchar exakt namn på tabeller i db. DONT TOUCH. And use them to avoid fat fingering stuff. Dessa fat finger fel är sega att hitta. :)
         public static readonly string FactoryTable = "FactoryTable";
         public static readonly string IOOddTable = "IOOddTable";
@@ -71,6 +70,9 @@ namespace GlobalStringsReadOnly
         public static readonly string Cam1KeepTable_Insert = "Cam1KeepTable_Insert";
         public static readonly string Cam1ThrowTable_Insert = "Cam1ThrowTable_Insert";
         public static readonly string PictureTable_cutPostsBetweenInTable = "PictureTable_cutPostsBetweenInTable";
-
+        public static readonly string Cam2OddTable_Insert = "Cam2OddTable_Insert";
+        public static readonly string Cam2EvenTable_Insert = "Cam2EvenTable_Insert";
+        public static readonly string Cam2KeepTable_Insert = "Cam2KeepTable_Insert";
+        public static readonly string Cam2ThrowTable_Insert = "Cam2ThrowTable_Insert";
     }
 }

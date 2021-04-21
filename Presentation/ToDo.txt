@@ -1,25 +1,16 @@
 
 
 
-2: dashboard.PicturesInWorkFolder.Text skall finnas för båda kameror, och samma för keep folder.
 
-3.5 SaveToDB. lite bugare map att den alltid sparar till cam1Tabell.
+1: Köp skjorta och inventera västen.
 
-3: Samla in data
+2: Samla in data
 
+3: Gå över och snygga till
 
-2: Gå över och snygga till
-
-
+5: Gör film
 
 
-
-
-5: skissa på mina slides.
-
-
-
-6: Gör film
 
 
 ********

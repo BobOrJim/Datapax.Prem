@@ -32,7 +32,7 @@ namespace Infrastructure
             {
                 Debug.WriteLine("Dear developer and fellow collegue, it seams to be an exception in the dataAccess interface. Im sorry, this is not your fault!" +
                                 "The error is solely caused by me(Jimmy). Furthermore im also terribly sorry that i cant give you any valuable information about how to solve it. " +
-                                "However, if you stand up and scream JIMMY EXCETPTION as loud as you can , Ill come running with two cups of coffee. ");
+                                "However, if you stand up and scream JIMMY EXCETPTION as loud as you can , Ill come running with two cups of coffee ASAP. ");
                 Debug.WriteLine($"Exception in my GeneralTable_create: " + e);
             }
         }
@@ -216,7 +216,7 @@ namespace Infrastructure
                     var _sqlSpParams = new { TABLE = tableName, startTime = startTime.ToString(), endTime = endTime.ToString() };
                     _result = connection.Query<IOSampleModel2>(_sqlSp, _sqlSpParams).ToList();
 
-                    //Stämplar samplingar med vilken avvikelse som var aktuell när denna metod anropades.
+                    //Stämplar samplingar med vilken Trigger som var aktuell när denna metod anropades.
                     if (GetLatestDeviation() != null)
                     {
                         for (var i = 0; i < _result.Count; i++)
@@ -343,7 +343,7 @@ namespace Infrastructure
                         string _sql_part1 = "";
                         switch (tableName)
                         {
-                            case "Cam1OddTable": //Denna rackare accepterar inte mina Enum
+                            case "Cam1OddTable": //Does not accept an static readonly string :(
                                 _sql_part1 = GlobalReadOnlyStrings.Cam1OddTable_Insert;
                                 break;
                             case "Cam1EvenTable":
@@ -355,12 +355,24 @@ namespace Infrastructure
                             case "Cam1ThrowTable":
                                 _sql_part1 = GlobalReadOnlyStrings.Cam1ThrowTable_Insert;
                                 break;
+                            case "Cam2OddTable":
+                                _sql_part1 = GlobalReadOnlyStrings.Cam2OddTable_Insert;
+                                break;
+                            case "Cam2EvenTable":
+                                _sql_part1 = GlobalReadOnlyStrings.Cam2EvenTable_Insert;
+                                break;
+                            case "Cam2KeepTable":
+                                _sql_part1 = GlobalReadOnlyStrings.Cam2KeepTable_Insert;
+                                break;
+                            case "Cam2ThrowTable":
+                                _sql_part1 = GlobalReadOnlyStrings.Cam2ThrowTable_Insert;
+                                break;
                             default:
                                 System.Diagnostics.Debug.WriteLine($"In GeneralTable_insertPictureObject: Wrong tableName inparam!!!!!!!! {tableName}");
                                 break;
                         }
                         string _sqlSp = _sql_part1 + GlobalReadOnlyStrings.PictureTablesTemplateColumnNames;
-                            //sqlPictureColumns;
+                        //sqlPictureColumns;
                         //System.Diagnostics.Debug.WriteLine($"In GeneralTable_insertPictureObject: Skickar sql med grejor till {_sql_part1}");
                         connection.Execute(_sqlSp, _samples);
                     }
@@ -405,3 +417,5 @@ namespace Infrastructure
         }
     }
 }
+
+

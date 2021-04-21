@@ -29,10 +29,7 @@ namespace Presentation.Tests
         public void RunCamera_StartingCamera_CammeraIsRunning(Boolean startCamera, bool expected)
         {
             //Arrange
-            CameraController camera1 = new CameraController(dataAccess) //Note, dataacces is not used here, i.e its ok that it is null.
-            {
-                videoDevicesID = 0
-            };
+            CameraController camera1 = new CameraController(dataAccess, 0, "Camera1"); //Note, dataacces is not used here, i.e its ok that it is null.
 
             // Act
             camera1.RunCamera(startCamera);

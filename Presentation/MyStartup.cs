@@ -27,6 +27,7 @@ namespace Presentation
         private readonly IOOddTableController iOOddTableController;
         private readonly IOEvenTableController iOEvenTableController;
         private readonly IOKeepTableController iOKeepTableController;
+
         private readonly Cam1OddTableController cam1OddTableController;
         private readonly Cam1EvenTableController cam1EvenTableController;
         private readonly Cam1KeepTableController cam1KeepTableController;
@@ -40,7 +41,7 @@ namespace Presentation
         public MyStartup()
         {
             dataAccess = new DataAccess();
-            //DIP av dataAcces till varje TableController
+            //DIP av dataAccess till varje TableController
             iOOddTableController = new IOOddTableController(dataAccess);
             iOEvenTableController = new IOEvenTableController(dataAccess);
             iOKeepTableController = new IOKeepTableController(dataAccess);
@@ -55,19 +56,17 @@ namespace Presentation
             cam2GarbageCollector = new Cam2GarbageCollector(dataAccess);
 
             //init Camera1 with dataAccess, folder paths, DB prefix and HW Id.
-            Camera1 = new CameraController(dataAccess, 0) //videoDevicesID
+            Camera1 = new CameraController(dataAccess, 0, "Camera1") //dataAccess, videoDevicesID, prefix
             {
                 pathFolderWork = GlobalReadOnlyStrings.pathCamera1WorkFolder,
-                pathFolderKeep = GlobalReadOnlyStrings.pathCamera1KeepFolder,
-                pictureFileNamePrefix = "Camera1",
+                pathFolderKeep = GlobalReadOnlyStrings.pathCamera1KeepFolder
             };
 
             //init Camera2 with dataAccess, folder paths, DB prefix and HW Id.
-            Camera2 = new CameraController(dataAccess, 1) //videoDevicesID
+            Camera2 = new CameraController(dataAccess, 1, "Camera2") //dataAccess, videoDevicesID, prefix
             {
                 pathFolderWork = GlobalReadOnlyStrings.pathCamera2WorkFolder,
-                pathFolderKeep = GlobalReadOnlyStrings.pathCamera2KeepFolder,
-                pictureFileNamePrefix = "Camera2",
+                pathFolderKeep = GlobalReadOnlyStrings.pathCamera2KeepFolder
             };
         }
 

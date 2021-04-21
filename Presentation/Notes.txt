@@ -80,6 +80,23 @@ Vestas_Verk12_Koppling_LågOljeNivå
 Vestas_Verk12_Koppling_TryckAvvikelse
 Vestas_Verk12_Väderstation_WatchDog
 
+Triggers:
+Retarder Solenoid current below normal
+8 Volt DC Supply short to +batt
+Aux Pressure sensor short to ground
+J1939 Data Link fault
+Engine Speed signal abnormal
+
+Panna låg flisnivå omrörare 1
+Panna låg flisnivå förgasare norr
+Panna hög prim/sek luft kvot
+
+Verk12 Bearings high vibrations
+Verk12 Bearings resonance warning
+Verk12 Cooling circuit low oil level
+Verk12 High bearing temperature
+Verk12 Abnormal (low) power output
+
 
 
 

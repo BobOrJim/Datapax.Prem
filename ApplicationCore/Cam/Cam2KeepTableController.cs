@@ -24,12 +24,12 @@ namespace ApplicationCore.Cam
             List<PictureSampleModel> deviationPictureSamplesFromEven;
             Int64 _latestDeviationTime_unixTime = getUnixTimeOfLatestDeviation();
 
-            deviationPictureSamplesFromOdd = lookForDeviationDataInTable(GlobalReadOnlyStrings.Cam1OddTable, _latestDeviationTime_unixTime, timeBeforeDeviationTextBox, timeAfterDeviationTextBox);
+            deviationPictureSamplesFromOdd = lookForDeviationDataInTable(GlobalReadOnlyStrings.Cam2OddTable, _latestDeviationTime_unixTime, timeBeforeDeviationTextBox, timeAfterDeviationTextBox);
             MoveThesePictureFilesToKeepFolder(deviationPictureSamplesFromOdd);
             //här gäller det att vara vaksam på pass by value eller pass by ref
             MoveThesePostsToKeep(deviationPictureSamplesFromOdd);
 
-            deviationPictureSamplesFromEven = lookForDeviationDataInTable(GlobalReadOnlyStrings.Cam1EvenTable, _latestDeviationTime_unixTime, timeBeforeDeviationTextBox, timeAfterDeviationTextBox);
+            deviationPictureSamplesFromEven = lookForDeviationDataInTable(GlobalReadOnlyStrings.Cam2EvenTable, _latestDeviationTime_unixTime, timeBeforeDeviationTextBox, timeAfterDeviationTextBox);
             MoveThesePictureFilesToKeepFolder(deviationPictureSamplesFromEven);
             MoveThesePostsToKeep(deviationPictureSamplesFromEven);
         }
@@ -39,9 +39,9 @@ namespace ApplicationCore.Cam
             foreach(PictureSampleModel item in deviationPictureSamples)
             {
                 string sourceFilePath = item.FilePathCurrent_TEXT + item.FileNameCurrent_TEXT + item.FileEndingCurrent_TEXT;
-                System.Diagnostics.Debug.WriteLine($"In Cam1KeepTableController:MoveThesePictureFilesToKeepFolder är sourceFilePath: {sourceFilePath}");
+                System.Diagnostics.Debug.WriteLine($"In Cam2KeepTableController:MoveThesePictureFilesToKeepFolder är sourceFilePath: {sourceFilePath}");
                 string destinationFilePath = item.FilePathKeep_TEXT + item.FileNameKeep_TEXT + item.FileEndingKeep_TEXT;
-                System.Diagnostics.Debug.WriteLine($"In Cam1KeepTableController:MoveThesePictureFilesToKeepFolder är destinationFilePath: {destinationFilePath}");
+                System.Diagnostics.Debug.WriteLine($"In Cam2KeepTableController:MoveThesePictureFilesToKeepFolder är destinationFilePath: {destinationFilePath}");
 
                 item.FilePathCurrent_TEXT = item.FilePathKeep_TEXT;
                 item.FileNameCurrent_TEXT = item.FileNameKeep_TEXT;
@@ -52,7 +52,7 @@ namespace ApplicationCore.Cam
         }
         public void MoveThesePostsToKeep(List<PictureSampleModel> deviationPictureSamples)
         {
-            iDataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam1KeepTable, deviationPictureSamples);
+            iDataAccessGeneralTables.GeneralTable_insertPictureObject(GlobalReadOnlyStrings.Cam2KeepTable, deviationPictureSamples);
         }
 
         public List<PictureSampleModel> lookForDeviationDataInTable(string tableName, Int64 _latestDeviationTime_unixTime, string TimeBeforeDeviationTextBox, string TimeAfterDeviationTextBox)
@@ -66,7 +66,7 @@ namespace ApplicationCore.Cam
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine($"In Cam1KeepTableController:lookForDataToMoveToKeepTable: Exception:  {e}");
+                System.Diagnostics.Debug.WriteLine($"In Cam2KeepTableController:lookForDataToMoveToKeepTable: Exception:  {e}");
             }
             Int64 _unixTimeMilliseconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds();
             if (_unixTimeMilliseconds < _latestDeviationTime_unixTime + 1000 * Convert.ToInt64(TimeAfterDeviationTextBox))

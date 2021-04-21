@@ -21,14 +21,15 @@ namespace ApplicationCore.Cam
         public string pathFolderWork { get; set; }
         public string pathFolderKeep { get; set; }
         private int videoDevicesID { get; set; }
-        public string pictureFileNamePrefix { get; set; }
+        private string pictureFileNamePrefix { get; set; }
         public PictureController pictureController;
+        public Boolean FirstTimeStarted = false;
 
-
-        public CameraController(IDataAccess iDataAccess, int _videoDevicesID)
+        public CameraController(IDataAccess iDataAccess, int _videoDevicesID, string _pictureFileNamePrefix)
         {
             videoDevicesID = _videoDevicesID;
-            pictureController = new PictureController(iDataAccess);
+            pictureFileNamePrefix = _pictureFileNamePrefix;
+            pictureController = new PictureController(iDataAccess, pictureFileNamePrefix);
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             if (videoDevices.Count == 0)
             {
@@ -43,7 +44,13 @@ namespace ApplicationCore.Cam
         {
             if (_startRun)
             {
-                videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                if (FirstTimeStarted == false)
+                {
+                    videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                    videoSource = new VideoCaptureDevice(videoDevices[videoDevicesID].MonikerString);
+                    videoSource.NewFrame += new NewFrameEventHandler(NewFrameEventMethod); //Detta event triggar denna funk, när HW fångat en ny frame.
+                }
+                FirstTimeStarted = true;
 
                 if (videoDevices.Count <= 1)
                 {
@@ -52,14 +59,10 @@ namespace ApplicationCore.Cam
                 //Debug.WriteLine($" I am : {pictureFileNamePrefix} and my videoDevicesID is {videoDevicesID}");
                 //Debug.WriteLine($" videoDevices.Count: {videoDevices.Count} ");
                 //Debug.WriteLine($" videoDevices[0].Name: {videoDevices[0].Name}   videoDevices[1].Name: {videoDevices[1].Name}");
-
-                videoSource = new VideoCaptureDevice(videoDevices[videoDevicesID].MonikerString);
-                videoSource.NewFrame += new NewFrameEventHandler(NewFrameEventMethod); //Detta event triggar denna funk, när HW fångat en ny frame.
                 videoSource.Start();
             }
             else
             {
-                //Debug.WriteLine($" I will soon try to stop");
                 if (videoSource != null && videoSource.IsRunning)
                 {
                     //Debug.WriteLine($" Sending Stop command to camera {pictureFileNamePrefix} with ID {videoDevicesID} ");
