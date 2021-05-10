@@ -91,7 +91,6 @@
     <Compile Include="Cam\Cam1OddTableController.cs" />
     <Compile Include="Cam\CameraController.cs" />
     <Compile Include="Cam\PictureController.cs" />
-    <Compile Include="IO\DeviationCheck.cs" />
     <Compile Include="IO\IOEvenTableController.cs" />
     <Compile Include="IO\IOKeepTableController.cs" />
     <Compile Include="IO\IOOddTableController.cs" />
