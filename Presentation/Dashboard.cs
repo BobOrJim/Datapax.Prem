@@ -289,7 +289,6 @@ namespace Presentation
             StartCam2.BackColor = runCamera2 ? Color.Green : SystemColors.Control;
         }
 
-
     }
 }
 

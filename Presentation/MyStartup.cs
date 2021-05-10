@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
 using System.IO;
 using ApplicationCore.IO;
 using Infrastructure;
-using Interfaces;
 using ApplicationCore.Cam;
 using GlobalStringsReadOnly;
 using System.Diagnostics;
