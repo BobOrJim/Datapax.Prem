@@ -23,27 +23,27 @@ namespace Presentation
         public Boolean runCamera2 { get; set; }
 
         public Boolean _flushCamera1Folder { get; set; }
-        MyStartup taskManager;
+        MyStartup myStartup;
         public DataAccess dataAccess;
 
-        public Dashboard(MyStartup _taskManager)
+        public Dashboard(MyStartup _myStartup)
         {
             InitializeComponent();
-            taskManager = _taskManager;
-            taskManager.GetDashboardReference(this);
+            myStartup = _myStartup;
+            myStartup.GetDashboardReference(this);
             dataAccess = new DataAccess();
         }
 
         //Task on/off Buttons
         private void StartSimulator_Click(object sender, EventArgs e)
         {
-            taskManager.StartSimulator = !taskManager.StartSimulator;
-            StartSimulator.BackColor = taskManager.StartSimulator ? Color.Green : SystemColors.Control;
+            myStartup.StartSimulator = !myStartup.StartSimulator;
+            StartSimulator.BackColor = myStartup.StartSimulator ? Color.Green : SystemColors.Control;
         }
         private void StartWorker_Click(object sender, EventArgs e)
         {
-            taskManager.StartWorker = !taskManager.StartWorker;
-            StartWorker.BackColor = taskManager.StartWorker ? Color.Green : SystemColors.Control;
+            myStartup.StartWorker = !myStartup.StartWorker;
+            StartWorker.BackColor = myStartup.StartWorker ? Color.Green : SystemColors.Control;
         }
 
         #region Database buttons

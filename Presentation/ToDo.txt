@@ -13,12 +13,4 @@
 
 
 
-********
-Till Front
-* URL timer grejen.
-* KANSKE SNILLEBLIXT, SUDDA INTE. ALLA TIME SPIN BOXES KAN TRÄFFA SAMMA CALLBACK FUNKTION
-* Step line chart. Skriv in detta namn i någon kommentar i Front.
-* Kanske lägga till färgglidande bakgrund, så som jag gjorde på IQR.
-
-
 

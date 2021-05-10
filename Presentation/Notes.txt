@@ -24,7 +24,7 @@ MY TABELL GRUPERING (DVS SAMMA KOLUMNER/LAYOUT. FÖR STORED PROCEDURE TILLDELNING
 2D: Cam1ThrowTable (Notering: Endast filnamn + sökväg används. Övrig data blir dummy)
 
 
-STORED PROCEDURES (Notering, om/när *_Insert skall skall slås ihop (DRY) till grupper, behöver _samples i "connection.Execute(_sqlSp, _samples);" bli någon komplexare datatyp...)
+STORED PROCEDURES 
 Cam1EvenTable_Insert						(Command) (Input=List<PictureSampleModel>) (Grupp 2)
 Cam1KeepTable_Insert						(Command) (Input=List<PictureSampleModel>) (Grupp 2)
 Cam1OddTable_Insert							(Command) (Input=List<PictureSampleModel>) (Grupp 2)

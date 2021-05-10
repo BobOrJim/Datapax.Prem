@@ -55,14 +55,12 @@ namespace Presentation
             cam2KeepTableController = new Cam2KeepTableController(dataAccess);
             cam2GarbageCollector = new Cam2GarbageCollector(dataAccess);
 
-            //init Camera1 with dataAccess, folder paths, DB prefix and HW Id.
             Camera1 = new CameraController(dataAccess, 0, "Camera1") //dataAccess, videoDevicesID, prefix
             {
                 pathFolderWork = GlobalReadOnlyStrings.pathCamera1WorkFolder,
                 pathFolderKeep = GlobalReadOnlyStrings.pathCamera1KeepFolder
             };
 
-            //init Camera2 with dataAccess, folder paths, DB prefix and HW Id.
             Camera2 = new CameraController(dataAccess, 1, "Camera2") //dataAccess, videoDevicesID, prefix
             {
                 pathFolderWork = GlobalReadOnlyStrings.pathCamera2WorkFolder,
@@ -98,9 +96,8 @@ namespace Presentation
         {
             while (true)
             { 
-                if (StartWorker) //should be writen to disk, so unit restarts after power failiure.
+                if (StartWorker) //should be writen to disk, to force restart after power failiure.
                 {
-                    //Start several controllers to various functions.
                     UpdateSomeUIData();
 
                     iOOddTableController.Run(); //Data collected during an Odd minute
