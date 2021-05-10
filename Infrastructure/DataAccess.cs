@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Configuration;
 using Dapper;
@@ -16,7 +14,6 @@ namespace Infrastructure
     public class DataAccess : IDataAccess
     {
 
-
         public void GeneralTable_createIOTemplateTable(string tableName)
         {
             try
@@ -28,15 +25,15 @@ namespace Infrastructure
                     connection.Execute(_sqlSp, _sqlSpParams);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 Debug.WriteLine("Dear developer and fellow collegue, it seams to be an exception in the dataAccess interface. Im sorry, this is not your fault!" +
                                 "The error is solely caused by me(Jimmy). Furthermore im also terribly sorry that i cant give you any valuable information about how to solve it. " +
                                 "However, if you stand up and scream JIMMY EXCETPTION as loud as you can , Ill come running with two cups of coffee ASAP. ");
-                Debug.WriteLine($"Exception in my GeneralTable_create: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_createIOTemplateTable: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_createIOTemplateTable: ex.StackTrace = " + ex.StackTrace);
             }
         }
-
         public void GeneralTable_delete(string tableName)
         {
             try
@@ -48,9 +45,10 @@ namespace Infrastructure
                     connection.Execute(_sqlSp, _sqlSpParams);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_delete: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_delete: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_delete: ex.StackTrace = " + ex.StackTrace);
             }
         }
         public void GeneralTable_flush(string tableName)
@@ -64,9 +62,10 @@ namespace Infrastructure
                     connection.Execute(_sqlSp, _sqlSpParams);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_flush: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_flush: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_flush: ex.StackTrace = " + ex.StackTrace);
             }
         }
         public void GeneralTable_insertIOObject(string tableName, List<IOSampleModel2> _samples)
@@ -101,25 +100,19 @@ namespace Infrastructure
                                 break;
                         }
                         string _sqlSp = _sql_part1 + GlobalReadOnlyStrings.IOTablesTemplateColumnNames;
-                        //System.Diagnostics.Debug.WriteLine($"In GeneralTable_insert: Skickar sql med grejor till {_sql_part1}");
-                        //Debug.WriteLine(_sqlSp);
-                        //foreach (var item in _samples)
-                        //{
-                        //    Debug.WriteLine(item.Timestamp_unix_BIGINT.ToString());
-                        //}
-
-                        //Debug.WriteLine(string.Join("\n", _samples));
                         connection.Execute(_sqlSp, _samples);
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine($"Exception1 in GeneralTable_insertIOObject. input tableName= {tableName}: " + e);
+                        Debug.WriteLine($"Exception in DataAccess : GeneralTable_insertIOObject (in): ex.Message = " + ex.Message);
+                        Debug.WriteLine($"Exception in DataAccess : GeneralTable_insertIOObject (in): ex.StackTrace = " + ex.StackTrace);
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception2 in GeneralTable_insertIOObject. input tableName= {tableName}: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_insertIOObject: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_insertIOObject: ex.StackTrace = " + ex.StackTrace);
             }
         }
         public int GeneralTable_getNrOfRows(string tableName)
@@ -135,9 +128,10 @@ namespace Infrastructure
                     //System.Diagnostics.Debug.WriteLine($"ANTAL RADER ÄR: {_rowsInFactoryTable}");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_getNrOfRows: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_getNrOfRows: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_getNrOfRows: ex.StackTrace = " + ex.StackTrace);
             }
             return _rowsInFactoryTable;
         }
@@ -158,9 +152,10 @@ namespace Infrastructure
                     GeneralTable_flush(tableName);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_getAllRows: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_cutAllPostsInTable: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_cutAllPostsInTable: ex.StackTrace = " + ex.StackTrace);
             }
             return _factorySamples;
         }
@@ -180,9 +175,10 @@ namespace Infrastructure
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_getAllRows: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_getAllPostsInTable: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_getAllPostsInTable: ex.StackTrace = " + ex.StackTrace);
             }
             return _factorySamples;
         }
@@ -196,13 +192,12 @@ namespace Infrastructure
 
                     var sqlParams = new { TABLE = tableName, POST = samples.Timestamp_unix_BIGINT };
                     connection.Execute(sql, sqlParams);
-
-                    //                    var results = connection.Query(sql, values).ToList();
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GetLatestDeviation: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_inTableRemovePost: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_inTableRemovePost: ex.StackTrace = " + ex.StackTrace);
             }
         }
         public List<IOSampleModel2> GeneralTable_cutPostsBetweenInTable(string tableName, Int64 startTime, Int64 endTime)
@@ -227,9 +222,10 @@ namespace Infrastructure
                     GeneralTable_flush(tableName); //Spolar hela databasen, ty den data som spolas "i onödan" är ändå för gammal.
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_cutPostsBetweenInTable: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_cutPostsBetweenInTable: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_cutPostsBetweenInTable: ex.StackTrace = " + ex.StackTrace);
             }
             return _result;
         }
@@ -272,9 +268,10 @@ namespace Infrastructure
                     //3. Ändra factory till Odd och Even.
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_cutPostsbetween: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_cutPastePostsbetween: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_cutPastePostsbetween: ex.StackTrace = " + ex.StackTrace);
             }
         }
         private IOSampleModel2 GetLatestDeviation()
@@ -304,15 +301,17 @@ namespace Infrastructure
                             }
                         }
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        Console.WriteLine($"In GetLatestDeviation error: {e}");
+                        Debug.WriteLine($"Exception in DataAccess : GetLatestDeviation (in) : ex.Message = " + ex.Message);
+                        Debug.WriteLine($"Exception in DataAccess : GetLatestDeviation (in) : ex.StackTrace = " + ex.StackTrace);
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GetLatestDeviation: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GetLatestDeviation: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GetLatestDeviation: ex.StackTrace = " + ex.StackTrace);
             }
             return null;
         }
@@ -327,9 +326,10 @@ namespace Infrastructure
                     connection.Execute(_sqlSp, _sqlSpParams);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my GeneralTable_createPictureTemplateTable: " + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_createPictureTemplateTable: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_createPictureTemplateTable: ex.StackTrace = " + ex.StackTrace);
             }
         }
         public void GeneralTable_insertPictureObject(string tableName, List<PictureSampleModel> _samples)
@@ -376,15 +376,17 @@ namespace Infrastructure
                         //System.Diagnostics.Debug.WriteLine($"In GeneralTable_insertPictureObject: Skickar sql med grejor till {_sql_part1}");
                         connection.Execute(_sqlSp, _samples);
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine($"Exception 1 in GeneralTable_insertPictureObject: intable= {tableName}" + e);
+                        Debug.WriteLine($"Exception in DataAccess : GeneralTable_insertPictureObject: ex.Message = " + ex.Message);
+                        Debug.WriteLine($"Exception in DataAccess : GeneralTable_insertPictureObject: ex.StackTrace = " + ex.StackTrace);
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception 2 in GeneralTable_insertPictureObject: intable= {tableName}" + e);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_insertPictureObject: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : GeneralTable_insertPictureObject: ex.StackTrace = " + ex.StackTrace);
             }
         }
         public List<PictureSampleModel> PictureTable_cutPostsBetweenInTable(string tableName, Int64 startTime, Int64 endTime)
@@ -409,9 +411,10 @@ namespace Infrastructure
                     GeneralTable_flush(tableName); //Spolar hela databasen, ty den data som spolas "i onödan" är ändå för gammal.
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in my PictureTable_cutPostsBetweenInTable: " + e);
+                Debug.WriteLine($"Exception in DataAccess : PictureTable_cutPostsBetweenInTable: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccess : PictureTable_cutPostsBetweenInTable: ex.StackTrace = " + ex.StackTrace);
             }
             return _result;
         }

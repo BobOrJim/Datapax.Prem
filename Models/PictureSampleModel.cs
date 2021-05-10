@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Models
 {
@@ -36,21 +33,29 @@ namespace Models
 
         public PictureSampleModel()
         {
-            ToTable_TEXT = "SPARE";
+            try
+            {
+                ToTable_TEXT = "SPARE";
 
-            //Timestamp_unix_BIGINT
-            //BIGINT i SSMS motsvarar en Int64 i C#
-            var UnixTimeMilliseconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds(); // System.Int64 // 1607963957552
-            Timestamp_unix_BIGINT = UnixTimeMilliseconds;
+                //Timestamp_unix_BIGINT
+                //BIGINT i SSMS motsvarar en Int64 i C#
+                var UnixTimeMilliseconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds(); // System.Int64 // 1607963957552
+                Timestamp_unix_BIGINT = UnixTimeMilliseconds;
 
-            //Datestamp_TEXT
-            var UnixTimeSeconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(); // System.Int64  // 1607963957
-            DateTime UnixTimeSecondsDateTime = DateTimeOffset.FromUnixTimeSeconds(UnixTimeSeconds).DateTime; //System.DateTime //2020-12-14 16:50:03
-            var UnixTimeSecondsDateTimeString = UnixTimeSecondsDateTime.ToString(); // System.String // 2020-12-14 16:50:03
-            Datestamp_TEXT = UnixTimeSecondsDateTimeString;
+                //Datestamp_TEXT
+                var UnixTimeSeconds = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(); // System.Int64  // 1607963957
+                DateTime UnixTimeSecondsDateTime = DateTimeOffset.FromUnixTimeSeconds(UnixTimeSeconds).DateTime; //System.DateTime //2020-12-14 16:50:03
+                var UnixTimeSecondsDateTimeString = UnixTimeSecondsDateTime.ToString(); // System.String // 2020-12-14 16:50:03
+                Datestamp_TEXT = UnixTimeSecondsDateTimeString;
 
-            //DeviationID_TEXT
-            DeviationID_TEXT = "Ready to be set by Deviation function";
+                //DeviationID_TEXT
+                DeviationID_TEXT = "Ready to be set by Deviation function";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception in PictureSampleModel : PictureSampleModel: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in PictureSampleModel : PictureSampleModel: ex.StackTrace = " + ex.StackTrace);
+            }
         }
     }
 }

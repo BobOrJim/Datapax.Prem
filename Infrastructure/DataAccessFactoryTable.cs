@@ -8,6 +8,7 @@ using System.Configuration;
 using Dapper;
 using Models;
 using GlobalStringsReadOnly;
+using System.Diagnostics;
 
 namespace Infrastructure
 {
@@ -35,16 +36,18 @@ namespace Infrastructure
                         }
                         connection.Execute(_sqlSp, _samples);
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine($"Exception in class DataAccessFactoryTable Method FactoryTable_insert: " + e);
+                        Debug.WriteLine($"Exception in DataAccessFactoryTable : FactoryTable_insert (inside): ex.Message = " + ex.Message);
+                        Debug.WriteLine($"Exception in DataAccessFactoryTable : FactoryTable_insert (inside): ex.StackTrace = " + ex.StackTrace);
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Exception in class DataAccessFactoryTable Method FactoryTable_insert: " + e);
+                Debug.WriteLine($"Exception in DataAccessFactoryTable : FactoryTable_insert: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in DataAccessFactoryTable : FactoryTable_insert: ex.StackTrace = " + ex.StackTrace);
             }
-         }
+        }
     }
 }

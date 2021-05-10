@@ -9,6 +9,8 @@ using Infrastructure;
 using ApplicationCore.IO;
 using GlobalStringsReadOnly;
 
+//Klämer på Moq tester
+
 namespace IOController.Tests
 {
     public class IOEvenTableControllerTests

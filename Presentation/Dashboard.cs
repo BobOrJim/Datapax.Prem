@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Infrastructure;
 using Models;
 using GlobalStringsReadOnly;
+using System.Diagnostics;
 
 namespace Presentation
 {
@@ -28,10 +29,18 @@ namespace Presentation
 
         public Dashboard(MyStartup _myStartup)
         {
-            InitializeComponent();
-            myStartup = _myStartup;
-            myStartup.GetDashboardReference(this);
-            dataAccess = new DataAccess();
+            try
+            {
+                InitializeComponent();
+                myStartup = _myStartup;
+                myStartup.GetDashboardReference(this);
+                dataAccess = new DataAccess();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception in Dashboard : Dashboard: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in Dashboard : Dashboard: ex.StackTrace = " + ex.StackTrace);
+            }
         }
 
         //Task on/off Buttons
@@ -137,14 +146,22 @@ namespace Presentation
         }
         private async void IODeviationTable_Insert_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine($"Trycker på  IODeviationTable_Insert_Click");
-            List<IOSampleModel2> _samples = new List<IOSampleModel2>();
-            IOSampleModel2 _sample = new IOSampleModel2();
-            _sample.DeviationID_TEXT = DeviationTextBox.Text;
-            DeviationTextBox.Text = "";
-            _samples.Add(_sample);
-            System.Diagnostics.Debug.WriteLine($"Trycker på  IODeviationTable_Insert_Click");
-            await Task.Run(() => dataAccess.GeneralTable_insertIOObject(GlobalReadOnlyStrings.IODeviationTable, _samples));
+            try
+            {
+                System.Diagnostics.Debug.WriteLine($"Trycker på  IODeviationTable_Insert_Click");
+                List<IOSampleModel2> _samples = new List<IOSampleModel2>();
+                IOSampleModel2 _sample = new IOSampleModel2();
+                _sample.DeviationID_TEXT = DeviationTextBox.Text;
+                DeviationTextBox.Text = "";
+                _samples.Add(_sample);
+                System.Diagnostics.Debug.WriteLine($"Trycker på  IODeviationTable_Insert_Click");
+                await Task.Run(() => dataAccess.GeneralTable_insertIOObject(GlobalReadOnlyStrings.IODeviationTable, _samples));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception in Dashboard : IODeviationTable_Insert_Click: ex.Message = " + ex.Message);
+                Debug.WriteLine($"Exception in Dashboard : IODeviationTable_Insert_Click: ex.StackTrace = " + ex.StackTrace);
+            }
         }
 
 
